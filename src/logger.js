@@ -1,3 +1,5 @@
+'use strict'
+
 const { createLogger, format, transports } = require('winston')
 
 // Configure the Winston logger. For the complete documentation see https://github.com/winstonjs/winston

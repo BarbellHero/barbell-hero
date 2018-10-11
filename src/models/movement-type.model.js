@@ -1,3 +1,5 @@
+'use strict'
+
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
 const { Sequelize } = require('sequelize')

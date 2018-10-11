@@ -1,3 +1,5 @@
+'use strict'
+
 /* eslint-disable no-console */
 const logger = require('./logger')
 const consola = require('consola')

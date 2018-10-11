@@ -1,3 +1,5 @@
+'use strict'
+
 // Initializes the `movement-type` service on path `/movement-type`
 const createService = require('feathers-sequelize')
 const createModel = require('../../models/movement-type.model')
