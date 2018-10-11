@@ -8,7 +8,7 @@ let config = {};
 try {
   config = require("../client/nuxt.config.js");
 } catch (e) {
-  console.log("did not find a nuxt config");
+  console.log("did not find a nuxt config", e);
 }
 config.rootDir = resolve(__dirname, "..");
 config.dev = process.env.NODE_ENV !== "production";

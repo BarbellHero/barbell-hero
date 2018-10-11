@@ -43,4 +43,12 @@ api.use(express.errorHandler({ logger }));
 
 api.hooks(appHooks);
 
-module.exports = api;
+module.exports = function(app) {
+  const oldSetup = app.setup;
+
+  app.use("/api", api);
+  app.setup = function(...args) {
+    api.setup(args);
+    oldSetup.apply(this, args);
+  };
+};

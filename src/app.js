@@ -22,7 +22,7 @@ app.use(favicon(path.join(app.get("public"), "favicon.ico")));
 app.use(helmet());
 
 // Mount api microservice
-app.use("/api", api);
+app.configure(api);
 
 // Configure renderer
 app.use(renderer);
