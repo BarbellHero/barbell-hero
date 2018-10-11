@@ -1,5 +1,5 @@
-const resolve = require('path').resolve
-const { Nuxt, Builder } = require('nuxt')
+import { resolve } from 'path'
+import { Nuxt, Builder } from 'nuxt'
 
 // Setup nuxt.js
 let config = {}

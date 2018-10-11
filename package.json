@@ -25,7 +25,7 @@
     "test": "yarn run lint && yarn run mocha",
     "build": "cross-env NODE_ENV=production nuxt build && babel src --out-dir dist",
     "lint": "yarn run lint:run | snazzy",
-    "lint:run": "standard src/**/* test/**/*",
+    "lint:run": "standard",
     "lint:fix": "yarn run lint:run --fix",
     "dev": "cross-env NODE_ENV=development nodemon --exec babel-node src/",
     "start": "cross-env NODE_ENV=production node dist/",

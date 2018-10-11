@@ -1,4 +1,4 @@
-const nuxt = require('./nuxt')
+import { nuxt } from './nuxt'
 
 module.exports = function () {
   // Add your custom middleware here. Remember, that
