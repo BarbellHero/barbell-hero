@@ -15,6 +15,7 @@ module.exports = {
       }
     ]
   },
+  modules: ["@nuxtjs/vuetify"],
   build: {
     extend(config, ctx) {
       // Run ESLint on save

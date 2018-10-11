@@ -866,6 +866,13 @@
     esm "^3.0.79"
     node-fetch "^2.2.0"
 
+"@nuxtjs/vuetify@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/vuetify/-/vuetify-0.4.3.tgz#12427ad564be5ab652a0f10ff61bf48bdc0a9d06"
+  integrity sha512-al/bQz2dPQMszdvVBP8GpMhXpPzLhYnsqKt5Y6qlrLVSUOWvnnXEZY7xu1u1u2PEcq84COVlAqz34r1tLVHr8g==
+  dependencies:
+    vuetify "^1.2.5"
+
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/@nuxtjs/youch/-/youch-4.2.3.tgz#36f8b22df5a0efaa81373109851e1d857aca6bed"
@@ -8641,6 +8648,11 @@ vue@^2.5.17:
   version "2.5.17"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.17.tgz#0f8789ad718be68ca1872629832ed533589c6ada"
   integrity sha512-mFbcWoDIJi0w0Za4emyLiW72Jae0yjANHbCVquMKijcavBGypqlF7zHRgMa5k4sesdv7hv2rB4JPdZfR+TPfhQ==
+
+vuetify@^1.2.5:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.2.9.tgz#1c0d00f9a76620931ef4c662bfafe12f120b0d52"
+  integrity sha512-PQJrBU56KThmuffhO147D1wX+7fHyFIfdh+kTHb+Od234PgqcyGH8hQ4KWDM76SbL5ozinF6FLZBPPw07TR9UQ==
 
 vuex@^3.0.1:
   version "3.0.1"
