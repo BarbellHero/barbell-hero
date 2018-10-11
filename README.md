@@ -14,18 +14,18 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies
 
     ```
-    cd path/to/barbell-hero; npm install
+    cd path/to/barbell-hero; yarn
     ```
 
 3. Start your app
 
     ```
-    npm start
+    docker-compose up
     ```
 
 ## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+Simply run `yarn test` and all your tests in the `test/` directory will be run.
 
 ## Scaffolding
 
