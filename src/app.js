@@ -20,35 +20,46 @@ const channels = require("./channels")
 const renderer = require("./renderer")
 const sequelize = require("./sequelize")
 
+const api = express(feathers())
 const app = express(feathers())
 
-// Load app configuration
-app.configure(configuration())
-// Enable security, CORS, compression, favicon and body parsing
-app.use(helmet())
+function configureCommon(srv) {
+  // Load app configuration
+  srv.configure(configuration())
+}
+
+configureCommon(app)
+configureCommon(api)
+
+// Enable security, CORS, and favicon
 app.use(cors())
-app.use(compress())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 app.use(favicon(path.join(app.get("public"), "favicon.ico")))
+app.use(helmet())
+
+// Enable compression, and body parsing
+api.use(compress())
+api.use(express.json())
+api.use(express.urlencoded({ extended: true }))
 
 // Set up Plugins and providers
-app.configure(express.rest())
-app.configure(socketio())
+api.configure(express.rest())
+api.configure(socketio())
 
-app.configure(sequelize)
+api.configure(sequelize)
 
 // Configure other middleware (see `middleware/index.js`)
-app.configure(middleware)
+api.configure(middleware)
 // Set up our services (see `services/index.js`)
-app.configure(services)
+api.configure(services)
 // Set up event channels (see channels.js)
-app.configure(channels)
+api.configure(channels)
 
 // Configure a middleware for the error handler and the renderer
-app.use(express.errorHandler({ logger }))
+api.use(express.errorHandler({ logger }))
+api.hooks(appHooks)
+
+app.use('/api', api)
 app.use(renderer)
 
-app.hooks(appHooks)
 
 module.exports = app
