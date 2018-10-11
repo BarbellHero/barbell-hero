@@ -1,0 +1,18 @@
+version: '3.4'
+
+volumes:
+  node_modules:
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/src/app
+      - node_modules:/src/app/node_modules
+    ports:
+      - 3000:3000
+  db:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_USER: barbell-hero
