@@ -23,10 +23,10 @@
   },
   "scripts": {
     "test": "yarn run eslint && yarn run mocha",
-    "build": "nuxt build",
+    "build": "cross-env NODE_ENV=production nuxt build && babel src --out-dir dist",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
-    "start": "node src/",
+    "dev": "cross-env NODE_ENV=development nodemon --exec babel-node src/",
+    "start": "cross-env NODE_ENV=production node dist/",
     "mocha": "mocha test/ --recursive --exit"
   },
   "dependencies": {
@@ -46,6 +46,11 @@
     "winston": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "cross-env": "^5.2.0",
     "eslint": "^5.6.1",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.4",
