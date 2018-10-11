@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 module.exports = {
   before: {
@@ -30,4 +30,4 @@ module.exports = {
     patch: [],
     remove: []
   }
-}
+};

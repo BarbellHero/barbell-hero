@@ -1,4 +1,4 @@
-const { resolve } = require("path")
+const { resolve } = require("path");
 
 module.exports = {
   srcDir: resolve(__dirname),
@@ -24,7 +24,7 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   },
@@ -33,4 +33,4 @@ module.exports = {
       poll: 1000
     }
   }
-}
+};
