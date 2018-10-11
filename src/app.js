@@ -22,10 +22,9 @@ app.use(favicon(path.join(app.get("public"), "favicon.ico")))
 app.use(helmet())
 
 // Mount api microservice
-app.use('/api', api)
+app.use("/api", api)
 
 // Configure renderer
 app.use(renderer)
-
 
 module.exports = app

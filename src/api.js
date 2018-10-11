@@ -17,7 +17,7 @@ const sequelize = require("./sequelize")
 
 const api = express(feathers())
 
-  // Load app configuration
+// Load app configuration
 api.configure(configuration())
 
 // Enable compression, and body parsing
