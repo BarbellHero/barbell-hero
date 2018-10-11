@@ -1,9 +1,6 @@
-// Application hooks that run for every service
-import log from './hooks/log'
-
 export default {
   before: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -13,7 +10,7 @@ export default {
   },
 
   after: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],
@@ -23,7 +20,7 @@ export default {
   },
 
   error: {
-    all: [ log() ],
+    all: [],
     find: [],
     get: [],
     create: [],

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { logger } from './logger'
-import { consola } from 'consola'
-import { app } from './app'
+import logger from './logger'
+import consola from 'consola'
+import app from './app'
 
 const port = app.get('port')
 

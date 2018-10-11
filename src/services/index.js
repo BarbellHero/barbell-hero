@@ -1,3 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-module.exports = function (app) {
+import movementType from './movement-type/movement-type.service.js'
+
+export default function (app) {
+  app.configure(movementType)
 }

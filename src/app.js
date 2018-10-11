@@ -1,19 +1,22 @@
-import { path } from 'path'
-import { favicon } from 'serve-favicon'
-import { compress } from 'compression'
-import { helmet } from 'helmet'
-import { cors } from 'cors'
-import { logger } from './logger'
+import path from 'path'
+import favicon from 'serve-favicon'
+import compress from 'compression'
+import helmet from 'helmet'
+import cors from 'cors'
+import logger from './logger'
 
-import { feathers } from '@feathersjs/feathers'
-import { configuration } from '@feathersjs/configuration'
-import { express } from '@feathersjs/express'
-import { socketio } from '@feathersjs/socketio'
+import feathers from '@feathersjs/feathers'
+import configuration from '@feathersjs/configuration'
+import express from '@feathersjs/express'
+import socketio from '@feathersjs/socketio'
 
-import { middleware } from './middleware'
-import { services } from './services'
-import { appHooks } from './app.hooks'
-import { channels } from './channels'
+import middleware from './middleware'
+import services from './services'
+import appHooks from './app.hooks'
+import channels  from './channels'
+
+import renderer from './renderer'
+import sequelize from './sequelize'
 
 const app = express(feathers())
 
@@ -31,6 +34,8 @@ app.use(favicon(path.join(app.get('public'), 'favicon.ico')))
 app.configure(express.rest())
 app.configure(socketio())
 
+app.configure(sequelize)
+
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware)
 // Set up our services (see `services/index.js`)
@@ -38,10 +43,10 @@ app.configure(services)
 // Set up event channels (see channels.js)
 app.configure(channels)
 
-// Configure a middleware for 404s and the error handler
-app.use(express.notFound())
+// Configure a middleware for the error handler and the renderer
 app.use(express.errorHandler({ logger }))
+app.use(renderer)
 
 app.hooks(appHooks)
 
-module.exports = app
+export default app

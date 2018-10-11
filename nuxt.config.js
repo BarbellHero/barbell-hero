@@ -14,14 +14,18 @@ module.exports = {
   build: {
     extend (config, ctx) {
       // Run standard on save
+      /* Re-enable after switching to eslint with standard rules
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'standard-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
+          options: {
+            parser: 'babel-eslint'
+          }
         })
-      }
+      }*/
     }
   },
   watchers: {

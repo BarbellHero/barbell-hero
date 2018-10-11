@@ -4,9 +4,10 @@ import { Nuxt, Builder } from 'nuxt'
 // Setup nuxt.js
 let config = {}
 try {
-  config = require('../../nuxt.config.js')
+  config = require('../nuxt.config.js')
 } catch (e) {}
-config.rootDir = resolve(__dirname, '..', '..')
+config.rootDir = resolve(__dirname, '..')
+config.modulesDir = resolve(config.rootDir, 'node_modules')
 config.dev = process.env.NODE_ENV !== 'production'
 
 const nuxt = new Nuxt(config)
@@ -18,6 +19,6 @@ if (config.dev) {
 }
 
 // Add nuxt.js middleware
-module.exports = function (req, res) {
+export default function (req, res) {
   nuxt.render(req, res)
 }
