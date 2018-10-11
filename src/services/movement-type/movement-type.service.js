@@ -1,9 +1,9 @@
 // Initializes the `movement-type` service on path `/movement-type`
-import createService from 'feathers-sequelize'
-import createModel from '../../models/movement-type.model'
-import hooks from './movement-type.hooks'
+const createService = require('feathers-sequelize')
+const createModel = require('../../models/movement-type.model')
+const hooks = require('./movement-type.hooks')
 
-export default function (app) {
+module.exports = function (app) {
   const Model = createModel(app)
   const paginate = app.get('paginate')
 
@@ -19,4 +19,4 @@ export default function (app) {
   const service = app.service('movement-type')
 
   service.hooks(hooks)
-};
+}

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   before: {
     all: [],
     find: [],

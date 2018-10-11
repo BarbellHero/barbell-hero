@@ -1,5 +1,5 @@
-import movementType from './movement-type/movement-type.service.js'
+const movementType = require('./movement-type/movement-type.service.js')
 
-export default function (app) {
+module.exports = function (app) {
   app.configure(movementType)
 }

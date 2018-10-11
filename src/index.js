@@ -1,11 +1,9 @@
 /* eslint-disable no-console */
-import logger from './logger'
-import consola from 'consola'
-import app from './app'
+const logger = require('./logger')
+const consola = require('consola')
+const app = require('./app')
 
 const port = app.get('port')
-
-const server = app.listen(port)
 
 process.on('unhandledRejection', (reason, p) =>
   logger.error('Unhandled Rejection at: Promise ', p, reason)
@@ -16,6 +14,7 @@ process.on('nuxt:build:done', err => {
     consola.error(err)
     process.exit(1)
   }
+  const server = app.listen(port)
   server.on('listening', () =>
     consola.ready({
       message: `Feathers application started on ${app.get('host')}:${port}`,

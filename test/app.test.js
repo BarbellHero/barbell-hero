@@ -1,7 +1,7 @@
-import { assert } from 'assert'
-import { rp } from 'request-promise'
-import { url } from 'url'
-import { app } from '../src/app'
+const assert = require('assert')
+const rp = require('request-promise')
+const url = require('url')
+const app = require('../src/app')
 
 const port = app.get('port') || 3030
 const getUrl = pathname => url.format({

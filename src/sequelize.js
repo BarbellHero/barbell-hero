@@ -37,7 +37,7 @@ const operatorsAliases = {
   $col: Op.col
 }
 
-export default function (app) {
+module.exports = function (app) {
   const connectionString = app.get('postgres')
   const sequelize = new Sequelize(connectionString, {
     dialect: 'postgres',

@@ -1,10 +1,10 @@
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
-import { Sequelize } from 'sequelize'
+const { Sequelize } = require('sequelize')
 
 const DataTypes = Sequelize.DataTypes
 
-export default function (app) {
+module.exports = function (app) {
   const sequelizeClient = app.get('sequelizeClient')
   const movementType = sequelizeClient.define('movement_type', {
     name: {
@@ -25,4 +25,4 @@ export default function (app) {
   }
 
   return movementType
-};
+}

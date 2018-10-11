@@ -1,7 +1,7 @@
 // Application hooks that run for every service
-import log from './hooks/log'
+const log = require('./hooks/log')
 
-export default {
+module.exports = {
   before: {
     all: [ log() ],
     find: [],
