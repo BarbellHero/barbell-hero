@@ -13,16 +13,15 @@ module.exports = {
   },
   build: {
     extend(config, ctx) {
-      // Run ESLint on save
-      /*
+      // Run standard on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: 'standard-loader',
           exclude: /(node_modules)/
         })
-      }*/
+      }
     }
   },
   watchers: {
