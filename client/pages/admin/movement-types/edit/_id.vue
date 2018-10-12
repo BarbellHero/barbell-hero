@@ -2,8 +2,7 @@
   div
     page-header(v-once :title="movementType.name")
     page-content
-      v-form(v-model="valid")
-        v-text-field(v-model.lazy="name" label="Name" required)
+      movement-type-form
     v-bottom-nav(app fixed :value="true")
       v-btn(flat value="delete" @click="remove()")
         span Delete
@@ -14,6 +13,7 @@
 </template>
 
 <script>
+import MovementTypeForm from "~/components/forms/MovementType";
 import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
@@ -22,31 +22,16 @@ export default {
     await store.dispatch("movement-types/editWithId", params.id);
   },
   components: {
+    MovementTypeForm,
     PageContent,
     PageHeader
-  },
-  data() {
-    return {
-      valid: false
-    };
   },
   computed: {
     movementType() {
       return this.$store.getters["movement-types/editing"];
-    },
-    name: {
-      get() {
-        return this.movementType.name;
-      },
-      set(value) {
-        this.updateEditing({ name: value });
-      }
     }
   },
   methods: {
-    updateEditing(changes) {
-      this.$store.commit("movement-types/updateEditing", changes);
-    },
     async save() {
       this.$store.dispatch("movement-types/save");
       await this.$router.go(-1);
