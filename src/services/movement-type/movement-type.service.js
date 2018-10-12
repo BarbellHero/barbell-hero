@@ -15,10 +15,10 @@ module.exports = function(app) {
   };
 
   // Initialize our service with any options it requires
-  app.use("/movement-type", createService(options));
+  app.use("api/movement-type", createService(options));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service("movement-type");
+  const service = app.service("api/movement-type");
 
   service.hooks(hooks);
 };

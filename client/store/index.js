@@ -5,7 +5,7 @@ export const state = () => ({});
 export const mutations = {};
 
 export const plugins = [
-  service("movement-type", {
+  service("api/movement-type", {
     idField: "id",
     state: {
       editing: {}
