@@ -1,14 +1,30 @@
 <template lang="pug">
-  #app
+  v-app
+    main-navigation
     main-header
-    nuxt
+    main-content
+      nuxt
+    main-footer
 </template>
 
 <script>
+import MainContent from "../components/MainContent.vue";
+import MainFooter from "../components/MainFooter.vue";
 import MainHeader from "../components/MainHeader.vue";
+import MainNavigation from "../components/MainNavigation.vue";
 export default {
   components: {
-    MainHeader
+    MainContent,
+    MainFooter,
+    MainHeader,
+    MainNavigation
+  },
+  data: () => ({
+    drawer: null
+  }),
+  methods: {
+    goHome() {},
+    goToContacts() {}
   }
 };
 </script>
