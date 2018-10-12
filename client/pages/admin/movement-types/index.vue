@@ -13,6 +13,9 @@ export default {
   components: {
     PageHeader,
     PageContent
+  },
+  mounted() {
+    this.$store.dispatch("movement-types/fetchAll");
   }
 };
 </script>
