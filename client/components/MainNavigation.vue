@@ -6,11 +6,11 @@
           v-icon home
         v-list-tile-content
           v-list-tile-title Home
-      v-list-tile(@click="goToContacts()")
+      v-list-tile(@click="goToAdmin()")
         v-list-tile-action
-          v-icon contact_mail
+          v-icon settings
         v-list-tile-content
-          v-list-tile-title Contact
+          v-list-tile-title Admin
 </template>
 
 <script>
@@ -24,8 +24,12 @@ export default {
     this.$parent.$on("drawer:toggle", () => (this.isOpen = !this.isOpen));
   },
   methods: {
-    goHome() {},
-    goToContacts() {}
+    goHome() {
+      this.$router.push("/");
+    },
+    goToAdmin() {
+      this.$router.push("/admin");
+    }
   }
 };
 </script>
