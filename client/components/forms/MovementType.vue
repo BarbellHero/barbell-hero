@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-form(v-model="valid")
+  v-form(v-model="valid" @submit.prevent)
     v-text-field(v-model="name" label="Name" required)
 </template>
 
