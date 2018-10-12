@@ -11,7 +11,7 @@ module.exports = {
       {
         hid: "description",
         name: "description",
-        content: "A Feathers + Nuxt demo/boilerplate"
+        content: "A workout tracker that stays out of your way"
       }
     ]
   },
