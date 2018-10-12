@@ -23,7 +23,7 @@ export default {
     items() {
       return this.movementTypes.data.map(movementType => ({
         title: movementType.name,
-        routeToPush: "/admin/movement-types"
+        routeToPush: `/admin/movement-types/edit/${movementType.id}`
       }));
     }
   }
