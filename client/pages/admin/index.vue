@@ -5,7 +5,6 @@
 <script>
 import Navigation from "~/components/Navigation";
 export default {
-  layout: "navigation",
   components: {
     Navigation
   },
