@@ -4,7 +4,6 @@
     main-header
     v-content
       nuxt
-    main-footer
 </template>
 
 <script>

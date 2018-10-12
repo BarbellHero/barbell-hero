@@ -1,13 +1,10 @@
 <template lang="pug">
   div
-    page-header(v-once :title="movementType.name")
+    page-header(title="New Movement Type")
     page-content
       v-form(v-model="valid")
         v-text-field(v-model.lazy="name" label="Name" required)
     v-bottom-nav(app fixed :value="true")
-      v-btn(flat value="delete" @click="remove()")
-        span Delete
-        v-icon delete
       v-btn(flat value="save" @click="save()")
         span Save
         v-icon check
@@ -18,9 +15,6 @@ import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
 export default {
-  async fetch({ store, params }) {
-    await store.dispatch("movement-types/editWithId", params.id);
-  },
   components: {
     PageContent,
     PageHeader
@@ -43,17 +37,16 @@ export default {
       }
     }
   },
+  created() {
+    this.$store.commit("movement-types/setEditing", { name: "" });
+  },
   methods: {
     updateEditing(changes) {
       this.$store.commit("movement-types/updateEditing", changes);
     },
     async save() {
-      this.$store.dispatch("movement-types/save");
+      this.$store.dispatch("movement-types/create");
       await this.$router.go(-1);
-    },
-    async remove() {
-      await this.$store.dispatch("movement-types/remove");
-      this.$router.go(-1);
     }
   }
 };

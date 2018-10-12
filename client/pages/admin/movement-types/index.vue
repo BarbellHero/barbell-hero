@@ -1,7 +1,11 @@
 <template lang="pug">
   div
     page-header(title="Movement Types")
-    navigation(:items="items")
+    navigation(:items="items" loopKey="id")
+    v-bottom-nav(app fixed :value="true")
+      v-btn(flat value="save" nuxt to="/admin/movement-types/create")
+        span Create
+        v-icon add_circle_outline
 </template>
 
 <script>
