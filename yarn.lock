@@ -809,6 +809,13 @@
     events "^3.0.0"
     uberproto "^2.0.2"
 
+"@feathersjs/socketio-client@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@feathersjs/socketio-client/-/socketio-client-1.1.4.tgz#c6ce3fc48101808e4a2cfcb904244cc41787db49"
+  integrity sha512-AjB9wwL4/PmccCPcSbtm+KuftT1tIGs6wDc+5h+I7cpMZcI5TnxDfzstNCW8MqkeivjOMcRYO0ipSUZXMpYpnQ==
+  dependencies:
+    "@feathersjs/transport-commons" "^4.1.5"
+
 "@feathersjs/socketio@^3.2.6":
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/@feathersjs/socketio/-/socketio-3.2.6.tgz#759a5fbf67c04e2b522dd0625d4d8f196b4aff6c"
@@ -2708,7 +2715,7 @@ debug@3.1.0, debug@=3.1.0, debug@~3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0:
+debug@^3.1.0, debug@^3.2.5:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==
@@ -2731,6 +2738,11 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+
+deep-diff@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-1.0.2.tgz#afd3d1f749115be965e89c63edc7abb1506b9c26"
+  integrity sha512-aWS3UIVH+NPGCD1kki+DCU9Dua032iSsO43LqQpcs4R3+dVv7tX0qBGjiVHJHjplsoUM2XRO/KB92glqc68awg==
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -3479,6 +3491,11 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
+fast-copy@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/fast-copy/-/fast-copy-1.2.2.tgz#b15cf14d767f07c22cd5ffbd6cc615c12d206b7e"
+  integrity sha512-qgk7WyVVFNvUzEV/RRQfI7Y6SEjHI+SfmHpkSzzoMUpd4+uXQaeGxhz52/FjnaaNGWxuWXr5l4/kRPD8GPecGA==
+
 fast-deep-equal@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
@@ -3523,6 +3540,24 @@ feathers-sequelize@^3.1.2:
     "@feathersjs/errors" "^3.2.0"
     lodash.omit "^4.3.0"
     uberproto "^2.0.0"
+
+feathers-vuex@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/feathers-vuex/-/feathers-vuex-1.6.2.tgz#08361839e6ffbb19ec9b56085f56fdec20653e2e"
+  integrity sha512-Qb1QdXNk2UihpNEs2JH2fTmQQOSxdJOaNsqFwd/iaOo305nc/MURaAd6iWDxNYWdIH4hi99Od6m3xnIfA0YQ2g==
+  dependencies:
+    "@feathersjs/commons" "^3.0.1"
+    "@feathersjs/errors" "^3.3.4"
+    debug "^3.2.5"
+    deep-diff "^1.0.2"
+    fast-copy "^1.2.2"
+    inflection "^1.12.0"
+    jwt-decode "^2.2.0"
+    lodash.isobject "^3.0.2"
+    lodash.merge "^4.6.1"
+    lodash.trim "^4.5.1"
+    serialize-error "^2.1.0"
+    sift "^6.0.0"
 
 feature-policy@0.1.0:
   version "0.1.0"
@@ -4319,7 +4354,7 @@ indexof@0.0.1:
   resolved "https://registry.yarnpkg.com/indexof/-/indexof-0.0.1.tgz#82dc336d232b9062179d05ab3293a66059fd435d"
   integrity sha1-gtwzbSMrkGIXnQWrMpOmYFn9Q10=
 
-inflection@1.12.0:
+inflection@1.12.0, inflection@^1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/inflection/-/inflection-1.12.0.tgz#a200935656d6f5f6bc4dc7502e1aecb703228416"
   integrity sha1-ogCTVlbW9fa8TcdQLhrstwMihBY=
@@ -4812,6 +4847,11 @@ jstransformer@1.0.0:
     is-promise "^2.0.0"
     promise "^7.0.1"
 
+jwt-decode@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
+  integrity sha1-fYa9VmefWM5qhHBKZX3TkruoGnk=
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -4949,6 +4989,11 @@ lodash.debounce@^4.0.8:
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
 
+lodash.isobject@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
+  integrity sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
+
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -4958,6 +5003,11 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
+
+lodash.merge@^4.6.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+  integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
 
 lodash.omit@^4.3.0:
   version "4.5.0"
@@ -4978,6 +5028,11 @@ lodash.templatesettings@^4.0.0:
   integrity sha1-K01OlbpEDZFf8IvImeRVNmZxMxY=
   dependencies:
     lodash._reinterpolate "~3.0.0"
+
+lodash.trim@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
+  integrity sha1-NkJefukL5KpeJ7zruFt9EepHqlc=
 
 lodash.uniq@^4.5.0:
   version "4.5.0"
@@ -7529,6 +7584,11 @@ sequelize@^4.38.0:
     validator "^10.4.0"
     wkx "^0.4.1"
 
+serialize-error@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-2.1.0.tgz#50b679d5635cdf84667bdc8e59af4e5b81d5f60a"
+  integrity sha1-ULZ51WNc34Rme9yOWa9OW4HV9go=
+
 serialize-javascript@^1.3.0, serialize-javascript@^1.4.0, serialize-javascript@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.5.0.tgz#1aa336162c88a890ddad5384baebc93a655161fe"
@@ -7629,6 +7689,11 @@ shimmer@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/shimmer/-/shimmer-1.2.0.tgz#f966f7555789763e74d8841193685a5e78736665"
   integrity sha512-xTCx2vohXC2EWWDqY/zb4+5Mu28D+HYNSOuFzsyRDRvI/e1ICb69afwaUwfjr+25ZXldbOLyp+iDUZHq8UnTag==
+
+sift@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/sift/-/sift-6.0.0.tgz#f93a778e5cbf05a5024ebc391e6b32511a6d1f82"
+  integrity sha1-+Tp3jly/BaUCTrw5HmsyURptH4I=
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"

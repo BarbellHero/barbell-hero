@@ -14,7 +14,7 @@ import Navigation from "~/components/Navigation";
 
 export default {
   async fetch({ store }) {
-    await store.dispatch("movement-types/fetchAll");
+    await store.dispatch("movement-type/find");
   },
   components: {
     PageHeader,
@@ -22,10 +22,10 @@ export default {
   },
   computed: {
     movementTypes() {
-      return this.$store.getters["movement-types/all"];
+      return this.$store.getters["movement-type/list"];
     },
     items() {
-      return this.movementTypes.data.map(movementType => ({
+      return this.movementTypes.map(movementType => ({
         title: movementType.name,
         routeToPush: `/admin/movement-types/edit/${movementType.id}`
       }));

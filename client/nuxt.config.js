@@ -16,6 +16,7 @@ module.exports = {
     ]
   },
   modules: ["@nuxtjs/axios", "@nuxtjs/vuetify"],
+  plugins: ["~/plugins/feathers-client"],
   build: {
     extend(config, ctx) {
       // Run ESLint on save

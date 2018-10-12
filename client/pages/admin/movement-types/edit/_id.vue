@@ -18,8 +18,8 @@ import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
 export default {
-  async fetch({ store, params }) {
-    await store.dispatch("movement-types/editWithId", params.id);
+  fetch({ store, params }) {
+    store.dispatch("movement-type/editWithId", params.id);
   },
   components: {
     MovementTypeForm,
@@ -28,16 +28,19 @@ export default {
   },
   computed: {
     movementType() {
-      return this.$store.getters["movement-types/editing"];
+      return this.$store.state["movement-type"].editing;
     }
   },
   methods: {
     async save() {
-      this.$store.dispatch("movement-types/save");
+      this.$store.dispatch("movement-type/update", [
+        this.movementType.id,
+        this.movementType
+      ]);
       await this.$router.go(-1);
     },
     async remove() {
-      await this.$store.dispatch("movement-types/remove");
+      await this.$store.dispatch("movement-type/remove", this.movementType.id);
       this.$router.go(-1);
     }
   }

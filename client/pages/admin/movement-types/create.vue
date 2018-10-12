@@ -21,12 +21,17 @@ export default {
     PageHeader
   },
   created() {
-    this.$store.commit("movement-types/setEditing", { name: "" });
+    const { MovementType } = this.$FeathersVuex;
+    this.$store.commit(
+      "movement-type/setEditing",
+      new MovementType({ name: "" })
+    );
   },
   methods: {
     async save() {
-      this.$store.dispatch("movement-types/create");
-      await this.$router.go(-1);
+      const editing = this.$store.state["movement-type"].editing;
+      await this.$store.dispatch("movement-type/create", editing);
+      this.$router.go(-1);
     }
   }
 };

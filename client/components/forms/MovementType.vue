@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     movementType() {
-      return this.$store.getters["movement-types/editing"];
+      return this.$store.state["movement-type"].editing;
     },
     name: {
       get() {
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     updateEditing(changes) {
-      this.$store.commit("movement-types/updateEditing", changes);
+      this.$store.commit("movement-type/updateEditing", changes);
     }
   }
 };
