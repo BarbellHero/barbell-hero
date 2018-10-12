@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    page-header(title="MovementTypes")
+    page-header(title="Movement Types")
     page-content
       span Movement Types
 </template>
