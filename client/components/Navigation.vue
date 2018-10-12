@@ -7,7 +7,7 @@
     v-divider
     v-list.pt-0(dense)
       v-list-tile(v-for="item in items" :key="item.title" @click="go(item.routeToPush)")
-        v-list-tile-action
+        v-list-tile-action(v-if="item.icon")
           v-icon {{ item.icon }}
         v-list-tile-content
           v-list-tile-title {{ item.title }}
@@ -23,6 +23,10 @@ export default {
     title: {
       type: String,
       default: ""
+    },
+    separated: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

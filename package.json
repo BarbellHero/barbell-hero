@@ -24,7 +24,7 @@
   "scripts": {
     "test": "yarn run lint && yarn run mocha",
     "build": "cross-env NODE_ENV=production nuxt build",
-    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js --watch src/",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "yarn run lint --fix",
@@ -37,6 +37,7 @@
     "@feathersjs/express": "^1.2.7",
     "@feathersjs/feathers": "^3.2.3",
     "@feathersjs/socketio": "^3.2.6",
+    "@nuxtjs/axios": "^5.3.3",
     "@nuxtjs/vuetify": "^0.4.3",
     "compression": "^1.7.3",
     "consola": "^1.4.3",

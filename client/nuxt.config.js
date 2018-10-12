@@ -15,7 +15,7 @@ module.exports = {
       }
     ]
   },
-  modules: ["@nuxtjs/vuetify"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/vuetify"],
   build: {
     extend(config, ctx) {
       // Run ESLint on save
@@ -33,5 +33,8 @@ module.exports = {
     webpack: {
       poll: 1000
     }
+  },
+  axios: {
+    prefix: "/api"
   }
 };
