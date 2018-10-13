@@ -6,10 +6,12 @@ import Vue from "vue";
 
 //import auth from "@feathersjs/authentication-client";
 
-const port = process.env.PORT || 3000;
 const location = window.location;
-const host = `${location.protocol}//${location.hostname}`;
-const socket = io(`${host}:${port}`, { transports: ["websocket"] });
+let socketUrl = `${location.protocol}//${location.hostname}`;
+if (process.env.NODE_ENV !== "production") {
+  socketUrl += ":3000";
+}
+const socket = io(socketUrl, { transports: ["websocket"] });
 
 const feathersClient = feathers().configure(socketio(socket));
 //.configure(auth({ storage: window.localStorage }))
