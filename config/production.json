@@ -1,4 +1,5 @@
 {
   "host": "barbell-hero-app.feathersjs.com",
-  "port": "PORT"
+  "port": "PORT",
+  "postgres": "DATABASE_URL"
 }
