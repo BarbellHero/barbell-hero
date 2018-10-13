@@ -1,5 +1,7 @@
 "use strict";
 
+const logger = require("./logger");
+
 const Sequelize = require("sequelize");
 const { Op } = Sequelize;
 const operatorsAliases = {
@@ -41,6 +43,7 @@ const operatorsAliases = {
 
 module.exports = function(app) {
   const connectionString = app.get("postgres");
+  logger.info(`connecting to database: ${connectionString}`);
   const sequelize = new Sequelize(connectionString, {
     dialect: "postgres",
     logging: false,
