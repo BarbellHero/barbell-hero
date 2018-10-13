@@ -2,13 +2,14 @@
   div
     page-header(title="Movement Types")
     navigation(:items="items" loopKey="id")
-    v-bottom-nav(app fixed :value="true")
-      v-btn(flat value="save" nuxt to="/admin/movement-types/create")
+    bottom-navigation
+      v-btn(icon="save" nuxt to="/admin/movement-types/create")
         span Create
         v-icon add_circle_outline
 </template>
 
 <script>
+import BottomNavigation from "~/components/BottomNavigation";
 import PageHeader from "~/components/PageHeader";
 import Navigation from "~/components/Navigation";
 
@@ -17,6 +18,7 @@ export default {
     await store.dispatch("movement-type/find");
   },
   components: {
+    BottomNavigation,
     PageHeader,
     Navigation
   },

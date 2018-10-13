@@ -3,16 +3,14 @@
     page-header(v-once :title="movementType.name")
     page-content
       movement-type-form
-    v-bottom-nav(app fixed :value="true")
-      v-btn(flat value="delete" @click="remove()")
-        span Delete
-        v-icon delete
-      v-btn(flat value="save" @click="save()")
-        span Save
-        v-icon check
+    bottom-navigation
+      bottom-action(icon="delete" @click="remove()") Delete
+      bottom-action(icon="check" @click="save()") Save
 </template>
 
 <script>
+import BottomAction from "~/components/BottomAction";
+import BottomNavigation from "~/components/BottomNavigation";
 import MovementTypeForm from "~/components/forms/MovementType";
 import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
@@ -22,6 +20,8 @@ export default {
     store.dispatch("movement-type/editWithId", params.id);
   },
   components: {
+    BottomAction,
+    BottomNavigation,
     MovementTypeForm,
     PageContent,
     PageHeader

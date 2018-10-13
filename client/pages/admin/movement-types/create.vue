@@ -3,19 +3,21 @@
     page-header(title="New Movement Type")
     page-content
       movement-type-form
-    v-bottom-nav(app fixed :value="true")
-      v-btn(flat value="save" @click="save()")
-        span Save
-        v-icon check
+    bottom-navigation
+      bottom-action(icon="check" @click="save()") Save
 </template>
 
 <script>
+import BottomAction from "~/components/BottomAction";
+import BottomNavigation from "~/components/BottomNavigation";
 import MovementTypeForm from "~/components/forms/MovementType";
 import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
 export default {
   components: {
+    BottomAction,
+    BottomNavigation,
     MovementTypeForm,
     PageContent,
     PageHeader
