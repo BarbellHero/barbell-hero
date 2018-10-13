@@ -12,7 +12,7 @@ module.exports = {
       }
     ]
   },
-  modules: ["@nuxtjs/axios", "@nuxtjs/vuetify"],
+  modules: ["@nuxtjs/vuetify"],
   plugins: ["~/plugins/feathers-client"],
   build: {
     extend(config, ctx) {
