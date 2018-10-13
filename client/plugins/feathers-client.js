@@ -3,8 +3,7 @@ import socketio from "@feathersjs/socketio-client";
 import io from "socket.io-client";
 import feathersVuex from "feathers-vuex";
 import Vue from "vue";
-
-//import auth from "@feathersjs/authentication-client";
+import authentication from "@feathersjs/authentication-client";
 
 const location = window.location;
 let socketUrl = `${location.protocol}//${location.hostname}`;
@@ -13,13 +12,14 @@ if (process.env.NODE_ENV !== "production") {
 }
 const socket = io(socketUrl, { transports: ["websocket"] });
 
-const feathersClient = feathers().configure(socketio(socket));
-//.configure(auth({ storage: window.localStorage }))
+const feathersClient = feathers()
+  .configure(socketio(socket))
+  .configure(authentication({ storage: window.localStorage }));
 
-const { service, FeathersVuex } = feathersVuex(feathersClient, {
+const { service, FeathersVuex, auth } = feathersVuex(feathersClient, {
   idField: "id"
 });
 
 Vue.use(FeathersVuex);
 
-export { service };
+export { service, auth };

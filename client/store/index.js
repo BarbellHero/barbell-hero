@@ -1,10 +1,11 @@
-import { service } from "~/plugins/feathers-client";
+import { auth, service } from "~/plugins/feathers-client";
 
 export const state = () => ({});
 
 export const mutations = {};
 
 export const plugins = [
+  auth({ userService: "api/users" }),
   service("api/movement-type", {
     idField: "id",
     state: {
