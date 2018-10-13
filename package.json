@@ -23,13 +23,14 @@
   },
   "scripts": {
     "test": "yarn run lint && yarn run mocha",
-    "build": "cross-env NODE_ENV=production nuxt build",
+    "build": "cross-env NODE_ENV=production node client/build.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js --watch src/",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "yarn run lint --fix",
     "mocha": "mocha test/ --recursive --exit",
-    "precommit": "yarn run lint"
+    "precommit": "yarn run lint",
+    "heroku-postbuild": "yarn run build"
   },
   "dependencies": {
     "@feathersjs/configuration": "^2.0.4",

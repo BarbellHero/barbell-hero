@@ -1,7 +1,4 @@
-const { resolve } = require("path");
-
 module.exports = {
-  srcDir: resolve(__dirname),
   mode: "spa",
   head: {
     titleTemplate: "Barbell Hero",

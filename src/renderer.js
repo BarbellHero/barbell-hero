@@ -1,21 +1,8 @@
 "use strict";
 
-const { resolve } = require("path");
-const { Nuxt, Builder } = require("nuxt");
+const { builder, renderer, config } = require("../client/build-tools.js");
 
-// Setup nuxt.js
-let config = {};
-try {
-  config = require("../client/nuxt.config.js");
-} catch (e) {
-  console.log("did not find a nuxt config", e);
-}
-config.rootDir = resolve(__dirname, "..");
-config.dev = process.env.NODE_ENV !== "production";
-
-const nuxt = new Nuxt(config);
 if (config.dev) {
-  const builder = new Builder(nuxt);
   builder.build().then(() => process.emit("nuxt:build:done"));
 } else {
   process.nextTick(() => process.emit("nuxt:build:done"));
@@ -23,5 +10,5 @@ if (config.dev) {
 
 // Add nuxt.js middleware
 module.exports = function(req, res) {
-  nuxt.render(req, res);
+  renderer.render(req, res);
 };
