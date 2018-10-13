@@ -7,7 +7,9 @@ import Vue from "vue";
 //import auth from "@feathersjs/authentication-client";
 
 const port = process.env.PORT || 3000;
-const socket = io("http://localhost:" + port, { transports: ["websocket"] });
+const location = window.location;
+const host = `${location.protocol}//${location.hostname}`;
+const socket = io(`${host}:${port}`, { transports: ["websocket"] });
 
 const feathersClient = feathers().configure(socketio(socket));
 //.configure(auth({ storage: window.localStorage }))
