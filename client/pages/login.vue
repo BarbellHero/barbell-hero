@@ -28,7 +28,7 @@
 <script>
 import BottomAction from "~/components/BottomAction";
 import BottomNavigation from "~/components/BottomNavigation";
-import { required } from "~/plugins/form-validation";
+import { required, email } from "~/plugins/form-validation";
 
 export default {
   layout: "minimal",
@@ -39,7 +39,10 @@ export default {
   data() {
     return {
       email: "",
-      emailRules: [required("Email is required")],
+      emailRules: [
+        required("Email is required"),
+        email("Must be a valid email")
+      ],
       password: "",
       passwordRules: [required("Password is required")]
     };
