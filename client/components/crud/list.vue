@@ -33,9 +33,6 @@ export default {
       required: true
     }
   },
-  async fetch({ app }) {
-    await app.$apiDispatch(`${this.api}/find`);
-  },
   computed: {
     list() {
       return this.$apiGet(`${this.api}/list`);
@@ -46,6 +43,9 @@ export default {
         routeToPush: `${this.baseRoute}/edit/${item.id}`
       }));
     }
+  },
+  mounted() {
+    this.$apiDispatch(`${this.api}/find`);
   }
 };
 </script>

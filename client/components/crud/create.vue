@@ -10,7 +10,6 @@
 <script>
 import BottomAction from "~/components/BottomAction";
 import BottomNavigation from "~/components/BottomNavigation";
-import MovementTypeForm from "~/components/forms/MovementType";
 import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
@@ -18,7 +17,6 @@ export default {
   components: {
     BottomAction,
     BottomNavigation,
-    MovementTypeForm,
     PageContent,
     PageHeader
   },
