@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    page-header(title="title")
+    page-header(:title="title")
     navigation(:items="navItems" loopKey="id")
     bottom-navigation
       v-btn(nuxt :to="`${baseRoute}/create`")

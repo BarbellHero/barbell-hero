@@ -1,40 +1,20 @@
 <template lang="pug">
-  div
-    page-header(title="New Movement Type")
-    page-content
-      movement-type-form
-    bottom-navigation
-      bottom-action(icon="check" @click="save()") Save
+  crud-create(
+    api="movement-type"
+    title="New Movement Type"
+    model="MovementType"
+  )
+    movement-type-form
 </template>
 
 <script>
-import BottomAction from "~/components/BottomAction";
-import BottomNavigation from "~/components/BottomNavigation";
+import CrudCreate from "~/components/crud/create";
 import MovementTypeForm from "~/components/forms/MovementType";
-import PageContent from "~/components/PageContent";
-import PageHeader from "~/components/PageHeader";
 
 export default {
   components: {
-    BottomAction,
-    BottomNavigation,
-    MovementTypeForm,
-    PageContent,
-    PageHeader
-  },
-  created() {
-    const { MovementType } = this.$FeathersVuex;
-    this.$apiCommit("movement-type/setEditing", new MovementType({ name: "" }));
-  },
-  methods: {
-    async save() {
-      if (!this.$apiGet("movement-type/editingIsValid")) {
-        return;
-      }
-      const editing = this.$apiState("movement-type").editing;
-      await this.$apiDispatch("movement-type/create", editing);
-      this.$router.go(-1);
-    }
+    CrudCreate,
+    MovementTypeForm
   }
 };
 </script>
