@@ -39,12 +39,9 @@ export default {
   data() {
     return {
       email: "",
-      emailRules: [
-        required("Email is required"),
-        email("Must be a valid email")
-      ],
+      emailRules: [required, email],
       password: "",
-      passwordRules: [required("Password is required")]
+      passwordRules: [required]
     };
   },
   methods: {

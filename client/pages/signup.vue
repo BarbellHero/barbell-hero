@@ -37,7 +37,7 @@
 <script>
 import BottomAction from "~/components/BottomAction";
 import BottomNavigation from "~/components/BottomNavigation";
-import { required, sameAs } from "~/plugins/form-validation";
+import { required, sameAs, email } from "~/plugins/form-validation";
 
 export default {
   layout: "minimal",
@@ -49,12 +49,12 @@ export default {
     return {
       valid: false,
       email: "",
-      emailRules: [required("Email is required")],
+      emailRules: [required, email],
       password: "",
-      passwordRules: [required("Password is required")],
+      passwordRules: [required],
       confirmPassword: "",
       confirmPasswordRules: [
-        required("Confirm Password is required"),
+        required,
         sameAs(() => this.password, "Passwords must match")
       ]
     };
