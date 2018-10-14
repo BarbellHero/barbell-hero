@@ -4,6 +4,13 @@ import * as validators from "vuelidate/lib/validators";
 
 Vue.use(Vuelidate);
 
-const required = message => v => validators.required(v) || message;
+const required = convertValidator(validators.required);
+const email = convertValidator(validators.email);
+const sameAs = (propertyLocator, message) =>
+  convertValidator(validators.sameAs(propertyLocator))(message);
 
-export { required };
+function convertValidator(validator) {
+  return message => v => validator.call(null, v) || message;
+}
+
+export { required, sameAs, email };
