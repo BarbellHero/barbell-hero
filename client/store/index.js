@@ -4,24 +4,14 @@ export const state = () => ({});
 
 export const mutations = {};
 
-export const plugins = [
-  auth({
-    userService: "api/users",
-    namespace: "api/auth",
-    state: {
-      publicPages: ["login", "signup"]
-    },
-    getters: {
-      authenticated: state => !!state.payload
-    }
-  }),
-  service("api/users", {
-    idField: "id",
-    nameStyle: "path"
-  }),
-  service("api/movement-type", {
-    idField: "id",
-    nameStyle: "path",
+const commonServiceOptions = {
+  idField: "id",
+  nameStyle: "path"
+};
+function crudService(apiResource, options) {
+  return service(`api/${apiResource}`, {
+    ...commonServiceOptions,
+    ...options,
     state: {
       editing: {},
       editingIsValid: undefined
@@ -49,5 +39,21 @@ export const plugins = [
         state.editingIsValid = valid;
       }
     }
-  })
+  });
+}
+
+export const plugins = [
+  auth({
+    userService: "api/users",
+    namespace: "api/auth",
+    state: {
+      publicPages: ["login", "signup"]
+    },
+    getters: {
+      authenticated: state => !!state.payload
+    }
+  }),
+  service("api/users", commonServiceOptions),
+  crudService("movement-type"),
+  crudService("movement")
 ];
