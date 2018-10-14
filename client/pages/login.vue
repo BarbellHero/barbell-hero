@@ -52,7 +52,7 @@ export default {
       if (!this.$refs.form.validate()) {
         return;
       }
-      await this.$store.dispatch("auth/authenticate", {
+      await this.$apiDispatch("auth/authenticate", {
         strategy: "local",
         email: this.email,
         password: this.password

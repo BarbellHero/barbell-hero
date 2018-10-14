@@ -14,10 +14,10 @@ module.exports = {
   },
   modules: ["@nuxtjs/vuetify"],
   plugins: [
-    "~/plugins/dispatch",
     "~/plugins/feathers-client",
     "~/plugins/form-validation",
-    "~/plugins/notifications"
+    "~/plugins/notifications",
+    "~/plugins/api"
   ],
   build: {
     extend(config, ctx) {

@@ -12,7 +12,7 @@ export default {
   },
   computed: {
     movementType() {
-      return this.$store.state["movement-type"].editing;
+      return this.$apiState("movement-type").editing;
     },
     name: {
       get() {
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     updateEditing(changes) {
-      this.$store.commit("movement-type/updateEditing", changes);
+      this.$apiCommit("movement-type/updateEditing", changes);
     }
   }
 };

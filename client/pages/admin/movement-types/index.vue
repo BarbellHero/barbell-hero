@@ -3,7 +3,7 @@
     page-header(title="Movement Types")
     navigation(:items="items" loopKey="id")
     bottom-navigation
-      v-btn(icon="save" nuxt to="/admin/movement-types/create")
+      v-btn(nuxt to="/admin/movement-types/create")
         span Create
         v-icon add_circle_outline
 </template>
@@ -14,8 +14,8 @@ import PageHeader from "~/components/PageHeader";
 import Navigation from "~/components/Navigation";
 
 export default {
-  async fetch({ store }) {
-    await store.dispatch("movement-type/find");
+  async fetch({ app }) {
+    await app.$apiDispatch("movement-type/find");
   },
   components: {
     BottomNavigation,
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     movementTypes() {
-      return this.$store.getters["movement-type/list"];
+      return this.$apiGet("movement-type/list");
     },
     items() {
       return this.movementTypes.map(movementType => ({

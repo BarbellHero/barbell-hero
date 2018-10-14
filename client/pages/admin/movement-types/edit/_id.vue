@@ -16,8 +16,8 @@ import PageContent from "~/components/PageContent";
 import PageHeader from "~/components/PageHeader";
 
 export default {
-  fetch({ store, params }) {
-    store.dispatch("movement-type/editWithId", params.id);
+  fetch({ app, params }) {
+    app.$apiDispatch("movement-type/editWithId", params.id);
   },
   components: {
     BottomAction,
@@ -28,19 +28,19 @@ export default {
   },
   computed: {
     movementType() {
-      return this.$store.state["movement-type"].editing;
+      return this.$apiState("movement-type").editing;
     }
   },
   methods: {
     async save() {
-      this.$store.dispatch("movement-type/update", [
+      this.$apiDispatch("movement-type/update", [
         this.movementType.id,
         this.movementType
       ]);
       await this.$router.go(-1);
     },
     async remove() {
-      await this.$store.dispatch("movement-type/remove", this.movementType.id);
+      await this.$apiDispatch("movement-type/remove", this.movementType.id);
       this.$router.go(-1);
     }
   }

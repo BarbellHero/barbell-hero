@@ -72,7 +72,7 @@ export default {
         email: this.email,
         password: this.password
       });
-      await this.$dispatch("users/create", user);
+      await this.$apiDispatch("users/create", user);
     },
     back() {
       this.$router.go(-1);

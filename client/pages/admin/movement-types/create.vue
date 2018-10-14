@@ -24,15 +24,12 @@ export default {
   },
   created() {
     const { MovementType } = this.$FeathersVuex;
-    this.$store.commit(
-      "movement-type/setEditing",
-      new MovementType({ name: "" })
-    );
+    this.$apiCommit("movement-type/setEditing", new MovementType({ name: "" }));
   },
   methods: {
     async save() {
-      const editing = this.$store.state["movement-type"].editing;
-      await this.$store.dispatch("movement-type/create", editing);
+      const editing = this.$apiState("movement-type").editing;
+      await this.$apiDispatch("movement-type/create", editing);
       this.$router.go(-1);
     }
   }
