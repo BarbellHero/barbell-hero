@@ -64,19 +64,7 @@ export default {
       if (!this.$refs.form.validate()) {
         return;
       }
-      this.createUser()
-        .then(() => this.$router.push("/login"))
-        .catch(error => {
-          /* eslint-disable-next-line no-debugger */
-          if (error.errors) {
-            error.errors.forEach(error =>
-              this.$notify({
-                type: "error",
-                title: error.message
-              })
-            );
-          }
-        });
+      this.createUser().then(() => this.$router.push("/login"));
     },
     async createUser() {
       const { User } = this.$FeathersVuex;
@@ -84,7 +72,7 @@ export default {
         email: this.email,
         password: this.password
       });
-      await this.$store.dispatch("users/create", user);
+      await this.$dispatch("users/create", user);
     },
     back() {
       this.$router.go(-1);

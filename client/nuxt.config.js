@@ -14,6 +14,7 @@ module.exports = {
   },
   modules: ["@nuxtjs/vuetify"],
   plugins: [
+    "~/plugins/dispatch",
     "~/plugins/feathers-client",
     "~/plugins/form-validation",
     "~/plugins/notifications"
