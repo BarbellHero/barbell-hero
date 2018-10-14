@@ -33,6 +33,9 @@ export default {
   },
   methods: {
     async save() {
+      if (!this.$apiGet("movement-type/editingIsValid")) {
+        return;
+      }
       this.$apiDispatch("movement-type/update", [
         this.movementType.id,
         this.movementType

@@ -1,13 +1,15 @@
 <template lang="pug">
-  v-form(v-model="valid" @submit.prevent)
-    v-text-field(v-model="name" label="Name" required)
+  v-form(@submit.prevent ref="form")
+    v-text-field(v-model="name" label="Name" :rules="nameRules")
 </template>
 
 <script>
+import { required } from "~/plugins/form-validation";
+
 export default {
   data() {
     return {
-      valid: false
+      nameRules: [required]
     };
   },
   computed: {
@@ -23,9 +25,20 @@ export default {
       }
     }
   },
+  mounted() {
+    this.$apiCommit(
+      "movement-type/setEditingIsValid",
+      this.$refs.form.validate()
+    );
+    this.$refs.form.resetValidation();
+  },
   methods: {
     updateEditing(changes) {
       this.$apiCommit("movement-type/updateEditing", changes);
+      this.$apiCommit(
+        "movement-type/setEditingIsValid",
+        this.$refs.form.validate()
+      );
     }
   }
 };

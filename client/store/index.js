@@ -23,7 +23,12 @@ export const plugins = [
     idField: "id",
     nameStyle: "path",
     state: {
-      editing: {}
+      editing: {},
+      editingIsValid: undefined
+    },
+
+    getters: {
+      editingIsValid: state => state.editingIsValid
     },
 
     actions: {
@@ -39,6 +44,9 @@ export const plugins = [
       },
       updateEditing(state, changes) {
         Object.assign(state.editing, changes);
+      },
+      setEditingIsValid(state, valid) {
+        state.editingIsValid = valid;
       }
     }
   })

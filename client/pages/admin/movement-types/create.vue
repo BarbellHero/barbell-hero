@@ -28,6 +28,9 @@ export default {
   },
   methods: {
     async save() {
+      if (!this.$apiGet("movement-type/editingIsValid")) {
+        return;
+      }
       const editing = this.$apiState("movement-type").editing;
       await this.$apiDispatch("movement-type/create", editing);
       this.$router.go(-1);
