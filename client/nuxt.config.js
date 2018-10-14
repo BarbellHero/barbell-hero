@@ -31,6 +31,9 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
+      if (ctx.isDev) {
+        config.devtool = "eval-source-map";
+      }
     }
   },
   watchers: {

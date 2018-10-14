@@ -15,6 +15,11 @@ export default {
           title: "Movement Types",
           icon: "tune",
           routeToPush: "/admin/movement-types"
+        },
+        {
+          title: "Movements",
+          icon: "accessibility",
+          routeToPush: "/admin/movements"
         }
       ]
     };

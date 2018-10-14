@@ -1,20 +1,20 @@
 <template lang="pug">
   crud-create(
-    api="movement-type"
-    title="New Movement Type"
-    model="MovementType"
+    api="movement"
+    title="New Movement"
+    model="Movement"
   )
-    movement-type-form
+    movement-form
 </template>
 
 <script>
 import CrudCreate from "~/components/crud/create";
-import MovementTypeForm from "~/components/forms/MovementType";
+import MovementForm from "~/components/forms/Movement";
 
 export default {
   components: {
     CrudCreate,
-    MovementTypeForm
+    MovementForm
   }
 };
 </script>

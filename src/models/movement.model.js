@@ -8,7 +8,7 @@ module.exports = function(app) {
   const movement = sequelizeClient.define(
     "movement",
     {
-      text: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false
       }
