@@ -60,17 +60,31 @@ export default {
     };
   },
   methods: {
-    async signup() {
+    signup() {
       if (!this.$refs.form.validate()) {
         return;
       }
+      this.createUser()
+        .then(() => this.$router.push("/login"))
+        .catch(error => {
+          /* eslint-disable-next-line no-debugger */
+          if (error.errors) {
+            error.errors.forEach(error =>
+              this.$notify({
+                type: "error",
+                title: error.message
+              })
+            );
+          }
+        });
+    },
+    async createUser() {
       const { User } = this.$FeathersVuex;
       const user = new User({
         email: this.email,
         password: this.password
       });
       await this.$store.dispatch("users/create", user);
-      this.$router.push("/login");
     },
     back() {
       this.$router.go(-1);

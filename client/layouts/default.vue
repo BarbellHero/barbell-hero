@@ -1,5 +1,6 @@
 <template lang="pug">
   v-app
+    notifications
     main-navigation
     main-header
     v-content

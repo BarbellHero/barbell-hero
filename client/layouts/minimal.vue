@@ -1,4 +1,6 @@
 <template lang="pug">
-  v-app
-    nuxt
+  #app
+    notifications
+    v-app
+      nuxt
 </template>

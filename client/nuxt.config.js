@@ -13,7 +13,11 @@ module.exports = {
     ]
   },
   modules: ["@nuxtjs/vuetify"],
-  plugins: ["~/plugins/feathers-client", "~/plugins/form-validation"],
+  plugins: [
+    "~/plugins/feathers-client",
+    "~/plugins/form-validation",
+    "~/plugins/notifications"
+  ],
   build: {
     extend(config, ctx) {
       // Run ESLint on save
