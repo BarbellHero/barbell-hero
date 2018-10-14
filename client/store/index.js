@@ -5,7 +5,18 @@ export const state = () => ({});
 export const mutations = {};
 
 export const plugins = [
-  auth({ userService: "api/users" }),
+  auth({
+    userService: "users",
+    state: {
+      publicPages: ["login", "signup"]
+    },
+    getters: {
+      authenticated: state => !!state.payload
+    }
+  }),
+  service("api/users", {
+    idField: "id"
+  }),
   service("api/movement-type", {
     idField: "id",
     state: {

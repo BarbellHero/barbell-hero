@@ -32,6 +32,9 @@ module.exports = {
       poll: 1000
     }
   },
+  router: {
+    middleware: ["auth"]
+  },
   axios: {
     prefix: "/api"
   }
