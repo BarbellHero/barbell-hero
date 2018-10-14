@@ -12,8 +12,8 @@ export default {
     CrudEdit,
     MovementTypeForm
   },
-  fetch({ app, params }) {
-    app.$apiDispatch("movement-type/editWithId", params.id);
+  async fetch({ app, params }) {
+    await app.$crudBeginEdit("movement-type", params.id);
   }
 };
 </script>

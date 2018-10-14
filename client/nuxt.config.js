@@ -17,7 +17,8 @@ module.exports = {
     "~/plugins/feathers-client",
     "~/plugins/form-validation",
     "~/plugins/notifications",
-    "~/plugins/api"
+    "~/plugins/api",
+    "~/plugins/crud"
   ],
   build: {
     extend(config, ctx) {
