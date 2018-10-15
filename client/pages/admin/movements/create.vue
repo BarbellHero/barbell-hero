@@ -15,6 +15,9 @@ export default {
   components: {
     CrudCreate,
     MovementForm
+  },
+  async fetch({ app }) {
+    await app.$apiDispatch("movement-type/find");
   }
 };
 </script>
