@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { crudOptions } from "~/plugins/crud";
 import { required } from "~/plugins/form-validation";
 
 export default {
@@ -12,34 +13,6 @@ export default {
       nameRules: [required]
     };
   },
-  computed: {
-    movementType() {
-      return this.$apiState("movement-type").editing;
-    },
-    name: {
-      get() {
-        return this.movementType.name;
-      },
-      set(value) {
-        this.updateEditing({ name: value });
-      }
-    }
-  },
-  mounted() {
-    this.$apiCommit(
-      "movement-type/setEditingIsValid",
-      this.$refs.form.validate()
-    );
-    this.$refs.form.resetValidation();
-  },
-  methods: {
-    updateEditing(changes) {
-      this.$apiCommit("movement-type/updateEditing", changes);
-      this.$apiCommit(
-        "movement-type/setEditingIsValid",
-        this.$refs.form.validate()
-      );
-    }
-  }
+  ...crudOptions("movement-type", ["name"])
 };
 </script>

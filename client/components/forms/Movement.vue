@@ -13,6 +13,7 @@
 
 <script>
 import { required } from "~/plugins/form-validation";
+import { crudOptions } from "~/plugins/crud";
 
 export default {
   data() {
@@ -21,36 +22,6 @@ export default {
       movementTypeIdRules: [required]
     };
   },
-  computed: {
-    movement() {
-      return this.$apiState("movement").editing;
-    },
-    name: {
-      get() {
-        return this.movement.name;
-      },
-      set(value) {
-        this.updateEditing({ name: value });
-      }
-    },
-    movementTypeId: {
-      get() {
-        return this.movement.movementTypeId;
-      },
-      set(value) {
-        this.updateEditing({ movementTypeId: value });
-      }
-    }
-  },
-  mounted() {
-    this.$apiCommit("movement/setEditingIsValid", this.$refs.form.validate());
-    this.$refs.form.resetValidation();
-  },
-  methods: {
-    updateEditing(changes) {
-      this.$apiCommit("movement/updateEditing", changes);
-      this.$apiCommit("movement/setEditingIsValid", this.$refs.form.validate());
-    }
-  }
+  ...crudOptions("movement", ["name", "movementTypeId"])
 };
 </script>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-function convertToStoreSymbol(apiSymbol) {
+export function convertToStoreSymbol(apiSymbol) {
   return `api/${apiSymbol}`;
 }
 
