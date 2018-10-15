@@ -1,8 +1,8 @@
 <template lang="pug">
   crud-list(
-    api="movement-type"
-    baseRoute="/admin/movement-types"
-    title="Movement Types"
+    api="movement"
+    baseRoute="/admin/movements"
+    title="Movements"
   )
 </template>
 

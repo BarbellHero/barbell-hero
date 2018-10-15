@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Navigation from "~/components/Navigation";
+import Navigation from "~/components/navigation";
 export default {
   components: {
     Navigation
@@ -15,6 +15,11 @@ export default {
           title: "Movement Types",
           icon: "tune",
           routeToPush: "/admin/movement-types"
+        },
+        {
+          title: "Movements",
+          icon: "accessibility",
+          routeToPush: "/admin/movements"
         }
       ]
     };

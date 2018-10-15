@@ -17,7 +17,8 @@ module.exports = {
     "~/plugins/feathers-client",
     "~/plugins/form-validation",
     "~/plugins/notifications",
-    "~/plugins/api"
+    "~/plugins/api",
+    "~/plugins/crud"
   ],
   build: {
     extend(config, ctx) {
@@ -29,6 +30,9 @@ module.exports = {
           loader: "eslint-loader",
           exclude: /(node_modules)/
         });
+      }
+      if (ctx.isDev) {
+        config.devtool = "eval-source-map";
       }
     }
   },

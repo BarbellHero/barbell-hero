@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import MainFooter from "../components/MainFooter.vue";
-import MainHeader from "../components/MainHeader.vue";
-import MainNavigation from "../components/MainNavigation.vue";
+import MainFooter from "../components/main-footer.vue";
+import MainHeader from "../components/main-header.vue";
+import MainNavigation from "../components/main-navigation.vue";
 export default {
   components: {
     MainFooter,
