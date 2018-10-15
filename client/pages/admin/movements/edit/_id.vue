@@ -13,6 +13,7 @@ export default {
     MovementForm
   },
   async fetch({ app, params }) {
+    await app.$apiDispatch("movement-type/find");
     await app.$crudBeginEdit("movement", params.id);
   }
 };

@@ -4,10 +4,12 @@
       v-model="name" 
       label="Name" 
       :rules="nameRules")
-    v-text-field(
-      v-model.number="movementTypeId"
+    v-select(
+      v-model="movementTypeId"
+      :items="entries"
+      item-text="name"
+      item-value="id"
       label="Movement Type"
-      number
       :rules="movementTypeIdRules")
 </template>
 
@@ -22,6 +24,12 @@ export default {
       movementTypeIdRules: [required]
     };
   },
-  ...crudOptions("movement", ["name", "movementTypeId"])
+  ...crudOptions("movement", ["name", "movementTypeId"], {
+    computed: {
+      entries() {
+        return this.$apiGet("movement-type/list");
+      }
+    }
+  })
 };
 </script>

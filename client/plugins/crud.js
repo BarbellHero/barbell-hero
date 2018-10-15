@@ -38,10 +38,15 @@ export function createMountedHook(apiResource) {
   };
 }
 
-export function crudOptions(apiResource, propertyNames) {
+export function crudOptions(
+  apiResource,
+  propertyNames,
+  extend = { computed: {} }
+) {
   return {
     computed: {
-      ...mapProperties(apiResource, propertyNames)
+      ...mapProperties(apiResource, propertyNames),
+      ...extend.computed
     },
     mounted: createMountedHook(apiResource)
   };
