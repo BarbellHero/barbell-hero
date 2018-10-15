@@ -1,48 +1,19 @@
 <template lang="pug">
-  div
-    page-header(v-once :title="movementType.name")
-    page-content
-      movement-type-form
-    bottom-navigation
-      bottom-action(icon="delete" @click="remove()") Delete
-      bottom-action(icon="check" @click="save()") Save
+  crud-edit(api="movement-type")
+    movement-type-form
 </template>
 
 <script>
-import BottomAction from "~/components/BottomAction";
-import BottomNavigation from "~/components/BottomNavigation";
-import MovementTypeForm from "~/components/forms/MovementType";
-import PageContent from "~/components/PageContent";
-import PageHeader from "~/components/PageHeader";
+import CrudEdit from "~/components/crud/edit";
+import MovementTypeForm from "~/components/forms/movement-type";
 
 export default {
-  fetch({ app, params }) {
-    app.$apiDispatch("movement-type/editWithId", params.id);
-  },
   components: {
-    BottomAction,
-    BottomNavigation,
-    MovementTypeForm,
-    PageContent,
-    PageHeader
+    CrudEdit,
+    MovementTypeForm
   },
-  computed: {
-    movementType() {
-      return this.$apiState("movement-type").editing;
-    }
-  },
-  methods: {
-    async save() {
-      this.$apiDispatch("movement-type/update", [
-        this.movementType.id,
-        this.movementType
-      ]);
-      await this.$router.go(-1);
-    },
-    async remove() {
-      await this.$apiDispatch("movement-type/remove", this.movementType.id);
-      this.$router.go(-1);
-    }
+  async fetch({ app, params }) {
+    await app.$crudBeginEdit("movement-type", params.id);
   }
 };
 </script>

@@ -4,6 +4,47 @@ export const state = () => ({});
 
 export const mutations = {};
 
+const commonServiceOptions = {
+  idField: "id",
+  nameStyle: "path"
+};
+function crudService(apiResource, options) {
+  return service(`api/${apiResource}`, {
+    ...commonServiceOptions,
+    ...options,
+    state: {
+      editing: {},
+      editingIsValid: undefined
+    },
+
+    getters: {
+      editingIsValid: state => state.editingIsValid
+    },
+
+    actions: {
+      async editWithId({ commit, getters, dispatch }, id) {
+        let movementType = getters.get(id);
+        if (!movementType) {
+          movementType = await dispatch("get", id);
+        }
+        commit("setEditing", movementType);
+      }
+    },
+
+    mutations: {
+      setEditing(state, movementType) {
+        state.editing = movementType;
+      },
+      updateEditing(state, changes) {
+        Object.assign(state.editing, changes);
+      },
+      setEditingIsValid(state, valid) {
+        state.editingIsValid = valid;
+      }
+    }
+  });
+}
+
 export const plugins = [
   auth({
     userService: "api/users",
@@ -15,31 +56,7 @@ export const plugins = [
       authenticated: state => !!state.payload
     }
   }),
-  service("api/users", {
-    idField: "id",
-    nameStyle: "path"
-  }),
-  service("api/movement-type", {
-    idField: "id",
-    nameStyle: "path",
-    state: {
-      editing: {}
-    },
-
-    actions: {
-      editWithId({ commit, getters }, id) {
-        const movementType = getters.get(id);
-        commit("setEditing", movementType);
-      }
-    },
-
-    mutations: {
-      setEditing(state, movementType) {
-        state.editing = movementType;
-      },
-      updateEditing(state, changes) {
-        Object.assign(state.editing, changes);
-      }
-    }
-  })
+  service("api/users", commonServiceOptions),
+  crudService("movement-type"),
+  crudService("movement")
 ];
