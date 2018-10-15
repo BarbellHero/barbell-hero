@@ -17,6 +17,7 @@ import { required } from "~/plugins/form-validation";
 export default {
   data() {
     return {
+      nameRules: [required],
       movementTypeIdRules: [required]
     };
   },
