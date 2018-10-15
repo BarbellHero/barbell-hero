@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import BottomAction from "~/components/BottomAction";
-import BottomNavigation from "~/components/BottomNavigation";
+import BottomAction from "~/components/bottom-action";
+import BottomNavigation from "~/components/bottom-navigation";
 import { required, email } from "~/plugins/form-validation";
 
 export default {

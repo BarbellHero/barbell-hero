@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import BottomAction from "~/components/BottomAction";
-import BottomNavigation from "~/components/BottomNavigation";
-import PageContent from "~/components/PageContent";
-import PageHeader from "~/components/PageHeader";
+import BottomAction from "~/components/bottom-action";
+import BottomNavigation from "~/components/bottom-navigation";
+import PageContent from "~/components/page-content";
+import PageHeader from "~/components/page-header";
 
 export default {
   components: {

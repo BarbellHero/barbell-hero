@@ -9,7 +9,7 @@
 
 <script>
 import CrudCreate from "~/components/crud/create";
-import MovementTypeForm from "~/components/forms/MovementType";
+import MovementTypeForm from "~/components/forms/movement-type";
 
 export default {
   components: {

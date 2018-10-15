@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import BottomNavigation from "~/components/BottomNavigation";
-import PageHeader from "~/components/PageHeader";
-import Navigation from "~/components/Navigation";
+import BottomNavigation from "~/components/bottom-navigation";
+import PageHeader from "~/components/page-header";
+import Navigation from "~/components/navigation";
 
 export default {
   components: {

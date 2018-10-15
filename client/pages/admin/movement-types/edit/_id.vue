@@ -5,7 +5,7 @@
 
 <script>
 import CrudEdit from "~/components/crud/edit";
-import MovementTypeForm from "~/components/forms/MovementType";
+import MovementTypeForm from "~/components/forms/movement-type";
 
 export default {
   components: {

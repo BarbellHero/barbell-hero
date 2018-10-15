@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import MainMenu from "../components/MainMenu.vue";
-import MainNavigation from "../components/MainNavigation.vue";
+import MainMenu from "../components/main-menu.vue";
+import MainNavigation from "../components/main-navigation.vue";
 export default {
   components: {
     MainMenu,
