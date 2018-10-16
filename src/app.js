@@ -11,12 +11,12 @@ const express = require("@feathersjs/express");
 const socketio = require("@feathersjs/socketio");
 const feathers = require("@feathersjs/feathers");
 const configuration = require("@feathersjs/configuration");
+const seeder = require("feathers-seeder");
 
 const middleware = require("./middleware");
 const services = require("./services");
 const appHooks = require("./app.hooks");
 const channels = require("./channels");
-
 const renderer = require("./renderer");
 
 const sequelize = require("./sequelize");
@@ -50,6 +50,8 @@ app.configure(authentication);
 app.configure(services);
 // Set up event channels (see channels.js)
 app.configure(channels);
+// Set up seeder
+app.configure(seeder(app.get("seeder")));
 
 // Configure a middleware for the error handler
 app.use(express.errorHandler({ logger }));
