@@ -20,6 +20,11 @@ export default {
           title: "Movements",
           icon: "accessibility",
           routeToPush: "/admin/movements"
+        },
+        {
+          title: "Workouts",
+          icon: "fitness_center",
+          routeToPush: "/admin/workouts"
         }
       ]
     };

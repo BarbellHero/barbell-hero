@@ -4,6 +4,8 @@ export const state = () => ({});
 
 export const mutations = {};
 
+const crudServices = ["movement-type", "movement", "movement-set", "workout"];
+
 const commonServiceOptions = {
   idField: "id",
   nameStyle: "path"
@@ -57,6 +59,5 @@ export const plugins = [
     }
   }),
   service("api/users", commonServiceOptions),
-  crudService("movement-type"),
-  crudService("movement")
+  ...crudServices.map(serviceName => crudService(serviceName))
 ];

@@ -5,12 +5,16 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function(app) {
   const sequelizeClient = app.get("sequelizeClient");
-  const movement = sequelizeClient.define(
-    "movement",
+  const movementSet = sequelizeClient.define(
+    "movement_set",
     {
-      name: {
-        type: DataTypes.STRING,
+      repetitions: {
+        type: DataTypes.INTEGER,
         allowNull: false
+      },
+      amrap: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       }
     },
     {
@@ -23,9 +27,10 @@ module.exports = function(app) {
   );
 
   // eslint-disable-next-line no-unused-vars
-  movement.associate = function(models) {
-    movement.hasMany(models.movement_set);
+  movementSet.associate = function(models) {
+    // Define associations here
+    // See http://docs.sequelizejs.com/en/latest/docs/associations/
   };
 
-  return movement;
+  return movementSet;
 };

@@ -3,5 +3,8 @@
   "postgres": "DATABASE_URL",
   "authentication": {
     "secret": "JWT_SECRET"
+  },
+  "seeder": {
+    "disabled": true
   }
 }

@@ -17,13 +17,11 @@ process.on("nuxt:build:done", err => {
     consola.error(err);
     process.exit(1);
   }
-  app.seed().then(() => {
-    const server = app.listen(port);
-    server.on("listening", () =>
-      consola.ready({
-        message: `Feathers application started on ${app.get("host")}:${port}`,
-        badge: true
-      })
-    );
-  });
+  const server = app.listen(port);
+  server.on("listening", () =>
+    consola.ready({
+      message: `Feathers application started on ${app.get("host")}:${port}`,
+      badge: true
+    })
+  );
 });

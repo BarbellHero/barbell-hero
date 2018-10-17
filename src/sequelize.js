@@ -65,7 +65,7 @@ module.exports = function(app) {
     });
 
     // Sync to the database
-    sequelize.sync();
+    sequelize.sync().then(() => app.seed());
 
     return result;
   };
