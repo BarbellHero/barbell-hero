@@ -1,6 +1,6 @@
 <template lang="pug">
   crud-edit(api="workout" :bottomActions="bottomActions" @addSet="addSet()")
-    span 
+    span Add sets here
 </template>
 
 <script>
@@ -25,7 +25,11 @@ export default {
     };
   },
   methods: {
-    addSet() {}
+    addSet() {
+      this.$router.push(
+        `/admin/workouts/edit/${this.$route.params.id}/movement-set/create`
+      );
+    }
   }
 };
 </script>
