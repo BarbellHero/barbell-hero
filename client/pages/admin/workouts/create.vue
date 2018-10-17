@@ -1,23 +1,20 @@
 <template lang="pug">
   crud-create(
-    api="movement"
-    title="New Movement"
-    model="Movement"
+    api="workout"
+    title="New Workout"
+    model="Workout"
   )
-    movement-form
+    workout-form
 </template>
 
 <script>
 import CrudCreate from "~/components/crud/create";
-import MovementForm from "~/components/forms/movement";
+import WorkoutForm from "~/components/forms/workout";
 
 export default {
   components: {
     CrudCreate,
-    MovementForm
-  },
-  async fetch({ app }) {
-    await app.$apiDispatch("movement-type/find");
+    WorkoutForm
   }
 };
 </script>

@@ -4,8 +4,14 @@
     page-content
       slot
     bottom-navigation
-      bottom-action(icon="delete" @click="remove()") Delete
-      bottom-action(icon="check" @click="save()") Save
+      div(v-if="bottomActions !== undefined")
+        bottom-action(
+          v-for="action in bottomActions"
+          :icon="action.icon"
+          @click="emitAction(action.event)") {{ action.title }}
+      div(v-else)
+        bottom-action(icon="delete" @click="remove()") Delete
+        bottom-action(icon="check" @click="save()") Save
 </template>
 
 <script>
@@ -25,6 +31,10 @@ export default {
     api: {
       type: String,
       required: true
+    },
+    bottomActions: {
+      type: Array,
+      default: undefined
     }
   },
   computed: {
@@ -43,6 +53,9 @@ export default {
     async remove() {
       await this.$apiDispatch(`${this.api}/remove`, this.item.id);
       this.$router.go(-1);
+    },
+    emitAction(event) {
+      this.$emit(event);
     }
   }
 };

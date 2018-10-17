@@ -25,11 +25,11 @@ function crudService(apiResource, options) {
 
     actions: {
       async editWithId({ commit, getters, dispatch }, id) {
-        let movementType = getters.get(id);
-        if (!movementType) {
-          movementType = await dispatch("get", id);
+        let resource = getters.get(id);
+        if (!resource) {
+          resource = await dispatch("get", id);
         }
-        commit("setEditing", movementType);
+        commit("setEditing", resource);
       }
     },
 

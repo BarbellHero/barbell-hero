@@ -1,20 +1,31 @@
 <template lang="pug">
-  crud-edit(api="movement")
-    movement-form
+  crud-edit(api="workout" :bottomActions="bottomActions" @addSet="addSet()")
+    span 
 </template>
 
 <script>
 import CrudEdit from "~/components/crud/edit";
-import MovementForm from "~/components/forms/movement";
 
 export default {
   components: {
-    CrudEdit,
-    MovementForm
+    CrudEdit
   },
   async fetch({ app, params }) {
-    await app.$apiDispatch("movement-type/find");
-    await app.$crudBeginEdit("movement", params.id);
+    await app.$crudBeginEdit("workout", params.id);
+  },
+  data() {
+    return {
+      bottomActions: [
+        {
+          icon: "add",
+          event: "addSet",
+          title: "Add Set"
+        }
+      ]
+    };
+  },
+  methods: {
+    addSet() {}
   }
 };
 </script>
