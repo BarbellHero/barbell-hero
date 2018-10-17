@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - 10
 dist: trusty
+cache: yarn
 addons:
   sonarcloud:
     organization: "towerism-github" # the key of the org you chose at step #3
