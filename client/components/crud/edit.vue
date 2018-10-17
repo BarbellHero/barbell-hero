@@ -7,6 +7,7 @@
       div(v-if="bottomActions !== undefined")
         bottom-action(
           v-for="action in bottomActions"
+          :key="action.title"
           :icon="action.icon"
           @click="emitAction(action.event)") {{ action.title }}
       div(v-else)

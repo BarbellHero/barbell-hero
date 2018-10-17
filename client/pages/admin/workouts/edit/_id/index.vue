@@ -1,17 +1,26 @@
 <template lang="pug">
   crud-edit(api="workout" :bottomActions="bottomActions" @addSet="addSet()")
-    span Add sets here
+    navigation(:items="navItems" loopKey="id")
 </template>
 
 <script>
 import CrudEdit from "~/components/crud/edit";
+import Navigation from "~/components/navigation";
+
+const query = params => ({
+  query: {
+    workoutId: +params.id
+  }
+});
 
 export default {
   components: {
-    CrudEdit
+    CrudEdit,
+    Navigation
   },
   async fetch({ app, params }) {
     await app.$crudBeginEdit("workout", params.id);
+    await app.$apiDispatch("movement-set/find", query(params));
   },
   data() {
     return {
@@ -23,6 +32,17 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    sets() {
+      return this.$apiGet("movement-set/find")(query(this.$route.params)).data;
+    },
+    navItems() {
+      return this.sets.map(({ id }) => ({
+        title: id,
+        id
+      }));
+    }
   },
   methods: {
     addSet() {
