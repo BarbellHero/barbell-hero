@@ -1,8 +1,9 @@
 <template lang="pug">
   div
     page-header(v-once :title="item.name || title")
-    page-content
+    page-content(v-if="usesDefaultSlot")
       slot
+    slot(name="navigation")
     bottom-navigation(v-if="bottomActions !== undefined")
       bottom-action(
         v-for="action in bottomActions"
@@ -44,6 +45,9 @@ export default {
   computed: {
     item() {
       return this.$apiState(this.api).editing;
+    },
+    usesDefaultSlot() {
+      return !!this.$slots.default;
     }
   },
   methods: {

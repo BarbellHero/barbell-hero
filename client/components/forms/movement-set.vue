@@ -8,11 +8,6 @@
       label="Movement"
       :rules="movementIdRules")
     v-text-field(
-      v-model.number="weight" 
-      number
-      label="Weight" 
-      :rules="weightRules")
-    v-text-field(
       v-model.number="repetitions" 
       number
       label="Repititions" 
@@ -31,21 +26,16 @@ export default {
     return {
       nameRules: [required],
       movementIdRules: [required],
-      weightRules: [required],
       repetitionRules: [required]
     };
   },
-  ...crudOptions(
-    "movement-set",
-    ["movementId", "weight", "repetitions", "amrap"],
-    {
-      computed: {
-        entries() {
-          return this.$apiGet("movement/list");
-        }
+  ...crudOptions("movement-set", ["movementId", "repetitions", "amrap"], {
+    computed: {
+      entries() {
+        return this.$apiGet("movement/list");
       }
     }
-  ),
+  }),
   created() {
     this.$apiCommit("movement-set/updateEditing", {
       workoutId: this.$route.params.id
