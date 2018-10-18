@@ -5,7 +5,7 @@
         v-list-tile
           v-list-tile-title.title {{title}}
     v-divider(v-if="title")
-    v-list.pt-0(dense)
+    v-list.pt-0(dense :two-line="twoLine")
       v-list-tile(v-for="item in items" :key="item[loopKey]" nuxt :to="item.routeToPush")
         slot(name="nav-item" :item="item")
           v-list-tile-action(v-if="item.icon")
@@ -28,6 +28,10 @@ export default {
     loopKey: {
       type: String,
       default: "title"
+    },
+    twoLine: {
+      type: Boolean,
+      default: undefined
     }
   }
 };

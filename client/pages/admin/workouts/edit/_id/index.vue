@@ -1,10 +1,11 @@
 <template lang="pug">
   crud-edit(api="workout" :bottomActions="bottomActions" @addSet="addSet()")
     div(slot="navigation")
-      navigation(:items="sets" loopKey="id")
+      navigation(:items="sets" loopKey="id" two-line)
         div(slot="nav-item" slot-scope="{ item }")
           v-list-tile-content
-            v-list-tile-title {{item["movement.name"]}}, {{item.weight}} lbs for {{item.repetitions}} reps (AMRAP: {{item.amrap}})
+            v-list-tile-title {{item["movement.name"]}}
+            v-list-tile-sub-title {{item.repetitions}} reps (AMRAP: {{item.amrap}})
 </template>
 
 <script>
