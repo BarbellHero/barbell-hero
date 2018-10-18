@@ -8,6 +8,10 @@ module.exports = function(app) {
   const movementSet = sequelizeClient.define(
     "movement_set",
     {
+      weight: {
+        type: DataTypes.DOUBLE,
+        allowNull: true
+      },
       repetitions: {
         type: DataTypes.INTEGER,
         allowNull: false
@@ -28,8 +32,8 @@ module.exports = function(app) {
 
   // eslint-disable-next-line no-unused-vars
   movementSet.associate = function(models) {
-    // Define associations here
-    // See http://docs.sequelizejs.com/en/latest/docs/associations/
+    movementSet.belongsTo(models.movement);
+    movementSet.belongsTo(models.workout);
   };
 
   return movementSet;

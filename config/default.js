@@ -40,12 +40,18 @@ module.exports = {
       },
       {
         count: 20,
+        path: "api/workout",
+        template: {
+          name: "{{random.word}}"
+        }
+      },
+      {
+        count: 20,
         path: "api/movement-type",
         template: {
           name: "{{random.word}}"
         },
         callback(movementType, seed) {
-          console.log("Seeding movements for type id: " + movementType.id);
           return seed({
             count: 5,
             path: "api/movement",

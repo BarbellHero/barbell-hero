@@ -3,7 +3,7 @@
     navigation(:items="sets" loopKey="id")
       div(slot="nav-item" slot-scope="{ item }")
         v-list-tile-content
-          v-list-tile-title {{ item.id }}, {{ item.repetitions }} reps (AMRAP: {{item.amrap}})
+          v-list-tile-title {{item["movement.name"]}}, {{item.weight}} lbs for {{item.repetitions}} reps (AMRAP: {{item.amrap}})
 </template>
 
 <script>

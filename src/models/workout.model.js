@@ -23,8 +23,9 @@ module.exports = function(app) {
   );
 
   // eslint-disable-next-line no-unused-vars
-  workout.associate = function(models) {
-    workout.hasMany(models.movement_set);
+  workout.associate = function({ movement_set }) {
+    workout.hasMany(movement_set);
+    movement_set.belongsTo(workout);
   };
 
   return workout;
