@@ -38,7 +38,14 @@ export default {
   },
   computed: {
     sets() {
-      return this.$apiGet("movement-set/find")(query(this.$route.params)).data;
+      return this.$apiGet("movement-set/find")(
+        query(this.$route.params)
+      ).data.map(movementSet => ({
+        routeToPush: `/admin/workouts/edit/${
+          this.$route.params.id
+        }/movement-set/edit/${movementSet.id}`,
+        ...movementSet
+      }));
     }
   },
   methods: {

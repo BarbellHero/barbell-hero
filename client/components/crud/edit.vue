@@ -1,18 +1,17 @@
 <template lang="pug">
   div
-    page-header(v-once :title="item.name")
+    page-header(v-once :title="item.name || title")
     page-content
       slot
-    bottom-navigation
-      div(v-if="bottomActions !== undefined")
-        bottom-action(
-          v-for="action in bottomActions"
-          :key="action.title"
-          :icon="action.icon"
-          @click="emitAction(action.event)") {{ action.title }}
-      div(v-else)
-        bottom-action(icon="delete" @click="remove()") Delete
-        bottom-action(icon="check" @click="save()") Save
+    bottom-navigation(v-if="bottomActions !== undefined")
+      bottom-action(
+        v-for="action in bottomActions"
+        :key="action.title"
+        :icon="action.icon"
+        @click="emitAction(action.event)") {{ action.title }}
+    bottom-navigation(v-else)
+      bottom-action(icon="delete" @click="remove()") Delete
+      bottom-action(icon="check" @click="save()") Save
 </template>
 
 <script>
@@ -29,6 +28,10 @@ export default {
     PageHeader
   },
   props: {
+    title: {
+      type: String,
+      default: undefined
+    },
     api: {
       type: String,
       required: true
