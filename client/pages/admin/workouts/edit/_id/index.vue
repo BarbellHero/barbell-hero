@@ -1,6 +1,9 @@
 <template lang="pug">
   crud-edit(api="workout" :bottomActions="bottomActions" @addSet="addSet()")
-    navigation(:items="navItems" loopKey="id")
+    navigation(:items="sets" loopKey="id")
+      div(slot="nav-item" slot-scope="{ item }")
+        v-list-tile-content
+          v-list-tile-title {{ item.id }}, {{ item.repetitions }} reps (AMRAP: {{item.amrap}})
 </template>
 
 <script>
@@ -36,12 +39,6 @@ export default {
   computed: {
     sets() {
       return this.$apiGet("movement-set/find")(query(this.$route.params)).data;
-    },
-    navItems() {
-      return this.sets.map(({ id }) => ({
-        title: id,
-        id
-      }));
     }
   },
   methods: {
