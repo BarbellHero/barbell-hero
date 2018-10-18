@@ -10,7 +10,7 @@
     v-text-field(
       v-model.number="repetitions" 
       number
-      label="Repititions" 
+      label="Repetitions" 
       :rules="repetitionRules")
     v-checkbox(
       v-model="amrap" 

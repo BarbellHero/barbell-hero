@@ -5,7 +5,7 @@
         div(slot="nav-item" slot-scope="{ item }")
           v-list-tile-content
             v-list-tile-title {{item["movement.name"]}}
-            v-list-tile-sub-title {{item.repetitions}} reps (AMRAP: {{item.amrap}})
+            v-list-tile-sub-title {{item.repetitions | amrap(item)}}
 </template>
 
 <script>
