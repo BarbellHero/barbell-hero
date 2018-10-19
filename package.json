@@ -22,10 +22,10 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "yarn lint && yarn build && yarn test:all --coverage",
-    "test:all": "jest",
+    "test": "yarn lint && yarn test:all --coverage",
+    "test:all": "yarn run build && jest",
     "test:unit": "jest --testPathPattern=unit.js$",
-    "test:e2e": "jest --testPathPattern=e2e.js$",
+    "test:e2e": "yarn run build && jest --testPathPattern=e2e.js$",
     "build": "cross-env NODE_ENV=production node client/build.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js --watch src/ --watch client/nuxt.config.js",
     "start": "cross-env NODE_ENV=production node src/index.js",
