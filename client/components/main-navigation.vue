@@ -6,6 +6,11 @@
           v-icon home
         v-list-tile-content
           v-list-tile-title Home
+      v-list-tile(@click="goToSessions()")
+        v-list-tile-action
+          v-icon fitness_center
+        v-list-tile-content
+          v-list-tile-title Sessions
       v-list-tile(@click="goToAdmin()")
         v-list-tile-action
           v-icon settings
@@ -29,6 +34,9 @@ export default {
     },
     goToAdmin() {
       this.$router.push("/admin");
+    },
+    goToSessions() {
+      this.$router.push("/sessions");
     }
   }
 };
