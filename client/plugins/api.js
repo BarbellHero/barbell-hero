@@ -5,29 +5,38 @@ export function convertToStoreSymbol(apiSymbol) {
 }
 
 export default ({ store }, inject) => {
-  inject("apiDispatch", async (apiAction, payload) => {
-    try {
-      const action = convertToStoreSymbol(apiAction);
-      await store.dispatch(action, payload);
-    } catch (error) {
-      if (error.errors && error.errors.length) {
-        error.errors.forEach(e => {
+  inject(
+    "apiDispatch",
+    async (apiAction, payload, { suppressNotifications } = {}) => {
+      try {
+        const action = convertToStoreSymbol(apiAction);
+        await store.dispatch(action, payload);
+      } catch (error) {
+        if (error.errors && error.errors.length) {
+          error.errors.forEach(e => {
+            if (suppressNotifications) {
+              throw error;
+            }
+            Vue.notify({
+              type: "error",
+              title: "Error",
+              text: e.message
+            });
+          });
+        } else {
+          if (suppressNotifications) {
+            throw error;
+          }
           Vue.notify({
             type: "error",
             title: "Error",
-            text: e.message
+            text: error.message
           });
-        });
-      } else {
-        Vue.notify({
-          type: "error",
-          title: "Error",
-          text: error.message
-        });
+        }
+        throw error;
       }
-      throw error;
     }
-  });
+  );
 
   inject("apiGet", apiGetter => {
     const getter = convertToStoreSymbol(apiGetter);

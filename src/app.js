@@ -31,7 +31,6 @@ app.use(cors());
 app.use(favicon(path.join(app.get("public"), "favicon.ico")));
 app.use(helmet());
 
-// Mount api microservice
 // Enable compression, and body parsing
 app.use(compress());
 app.use(express.json());
