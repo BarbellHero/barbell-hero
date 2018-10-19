@@ -1,28 +1,35 @@
 <template lang="pug">
   v-navigation-drawer(v-model="isOpen" fixed app)
     v-list(dense)
-      v-list-tile(@click="goHome()")
+      v-list-tile(v-for="item in items" nuxt :to="item.path")
         v-list-tile-action
-          v-icon home
+          v-icon {{item.icon}}
         v-list-tile-content
-          v-list-tile-title Home
-      v-list-tile(@click="goToSessions()")
-        v-list-tile-action
-          v-icon fitness_center
-        v-list-tile-content
-          v-list-tile-title Sessions
-      v-list-tile(@click="goToAdmin()")
-        v-list-tile-action
-          v-icon settings
-        v-list-tile-content
-          v-list-tile-title Admin
+          v-list-tile-title {{item.title}}
 </template>
 
 <script>
 export default {
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      items: [
+        {
+          path: "/",
+          icon: "home",
+          title: "Home"
+        },
+        {
+          path: "/sessions",
+          icon: "fitness_center",
+          title: "Sessions"
+        },
+        {
+          path: "/admin",
+          icon: "settings",
+          title: "Admin"
+        }
+      ]
     };
   },
   created() {
