@@ -112,3 +112,4 @@ lib/
 data/
 .nuxt/
 dist/
+/test-report.xml
