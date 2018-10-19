@@ -2,7 +2,7 @@ export default async function(context) {
   const { app, redirect, route } = context;
   const auth = app.$apiState("auth");
   try {
-    await app.$apiDispatch("auth/authenticate", null, {
+    await app.$apiDispatch("auth/authenticate", "jwt", {
       suppressNotifications: true
     });
   } catch (e) {
