@@ -1,9 +1,16 @@
 <template lang="pug">
   div
-    page-header(v-once :title="item.name")
-    page-content
+    page-header(v-once :title="item.name || title")
+    page-content(v-if="usesDefaultSlot")
       slot
-    bottom-navigation
+    slot(name="navigation")
+    bottom-navigation(v-if="bottomActions !== undefined")
+      bottom-action(
+        v-for="action in bottomActions"
+        :key="action.title"
+        :icon="action.icon"
+        @click="emitAction(action.event)") {{ action.title }}
+    bottom-navigation(v-else)
       bottom-action(icon="delete" @click="remove()") Delete
       bottom-action(icon="check" @click="save()") Save
 </template>
@@ -22,14 +29,25 @@ export default {
     PageHeader
   },
   props: {
+    title: {
+      type: String,
+      default: undefined
+    },
     api: {
       type: String,
       required: true
+    },
+    bottomActions: {
+      type: Array,
+      default: undefined
     }
   },
   computed: {
     item() {
       return this.$apiState(this.api).editing;
+    },
+    usesDefaultSlot() {
+      return !!this.$slots.default;
     }
   },
   methods: {
@@ -43,6 +61,9 @@ export default {
     async remove() {
       await this.$apiDispatch(`${this.api}/remove`, this.item.id);
       this.$router.go(-1);
+    },
+    emitAction(event) {
+      this.$emit(event);
     }
   }
 };

@@ -5,8 +5,8 @@ const DataTypes = Sequelize.DataTypes;
 
 module.exports = function(app) {
   const sequelizeClient = app.get("sequelizeClient");
-  const movement = sequelizeClient.define(
-    "movement",
+  const workout = sequelizeClient.define(
+    "workout",
     {
       name: {
         type: DataTypes.STRING,
@@ -23,10 +23,10 @@ module.exports = function(app) {
   );
 
   // eslint-disable-next-line no-unused-vars
-  movement.associate = function({ movement_set }) {
-    movement.hasMany(movement_set);
-    movement_set.belongsTo(movement);
+  workout.associate = function({ movement_set }) {
+    workout.hasMany(movement_set);
+    movement_set.belongsTo(workout);
   };
 
-  return movement;
+  return workout;
 };

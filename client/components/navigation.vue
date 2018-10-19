@@ -4,13 +4,14 @@
       v-list
         v-list-tile
           v-list-tile-title.title {{title}}
-    v-divider
-    v-list.pt-0(dense)
+    v-divider(v-if="title")
+    v-list.pt-0(dense :two-line="twoLine")
       v-list-tile(v-for="item in items" :key="item[loopKey]" nuxt :to="item.routeToPush")
-        v-list-tile-action(v-if="item.icon")
-          v-icon {{ item.icon }}
-        v-list-tile-content
-          v-list-tile-title {{ item.title }}
+        slot(name="nav-item" :item="item")
+          v-list-tile-action(v-if="item.icon")
+            v-icon {{ item.icon }}
+          v-list-tile-content
+            v-list-tile-title {{ item.title }}
 </template>
 
 <script>
@@ -24,13 +25,13 @@ export default {
       type: String,
       default: ""
     },
-    separated: {
-      type: Boolean,
-      default: false
-    },
     loopKey: {
       type: String,
       default: "title"
+    },
+    twoLine: {
+      type: Boolean,
+      default: undefined
     }
   }
 };

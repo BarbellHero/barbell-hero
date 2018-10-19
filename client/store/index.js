@@ -4,6 +4,8 @@ export const state = () => ({});
 
 export const mutations = {};
 
+const crudServices = ["movement-type", "movement", "movement-set", "workout"];
+
 const commonServiceOptions = {
   idField: "id",
   nameStyle: "path"
@@ -23,11 +25,11 @@ function crudService(apiResource, options) {
 
     actions: {
       async editWithId({ commit, getters, dispatch }, id) {
-        let movementType = getters.get(id);
-        if (!movementType) {
-          movementType = await dispatch("get", id);
+        let resource = getters.get(id);
+        if (!resource) {
+          resource = await dispatch("get", id);
         }
-        commit("setEditing", movementType);
+        commit("setEditing", resource);
       }
     },
 
@@ -57,6 +59,5 @@ export const plugins = [
     }
   }),
   service("api/users", commonServiceOptions),
-  crudService("movement-type"),
-  crudService("movement")
+  ...crudServices.map(serviceName => crudService(serviceName))
 ];

@@ -18,7 +18,8 @@ module.exports = {
     "~/plugins/form-validation",
     "~/plugins/notifications",
     "~/plugins/api",
-    "~/plugins/crud"
+    "~/plugins/crud",
+    "~/plugins/filters"
   ],
   build: {
     extend(config, ctx) {
