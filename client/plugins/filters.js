@@ -1,9 +1,12 @@
 import Vue from "vue";
 
-Vue.filter("amrap", function(movementSet) {
-  let result = `${movementSet.repetitions}`;
-  if (movementSet.amrap) {
-    result += "+";
-  }
-  return `${result} reps`;
+var req = require.context("../filters", false, /\.js$/);
+req.keys().forEach(key => {
+  const filters = req(key);
+  const filterNames = Object.getOwnPropertyNames(filters).filter(
+    name => name !== "__esModule"
+  );
+  filterNames.forEach(filterName => {
+    Vue.filter(filterName, filters[filterName]);
+  });
 });
