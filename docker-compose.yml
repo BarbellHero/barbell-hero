@@ -22,3 +22,21 @@ services:
     environment:
       POSTGRES_PASSWORD: pgpassword
       POSTGRES_USER: barbell-hero
+  test:
+    build:
+      context: .
+    volumes:
+      - .:/src/app
+      - /src/app/node_modules
+    ports:
+      - 9229:9229
+    command: "yarn test"
+    depends_on:
+      - test_db
+  test_db:
+    image: postgres:10
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_USER: barbell-hero
