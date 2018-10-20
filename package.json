@@ -27,7 +27,7 @@
     "test:unit": "cross-env NODE_ENV=test jest --testPathPattern=unit.js$",
     "test:e2e": "yarn run build:dev && cross-env NODE_ENV=test jest --testPathPattern=e2e.js$",
     "build": "cross-env NODE_ENV=production node client/build.js",
-    "build:dev": "node client/build.js",
+    "build:dev": "cross-env NODE_ENV=test node client/build.js",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js --watch src/ --watch client/nuxt.config.js",
     "start": "cross-env NODE_ENV=production node src/index.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -97,6 +97,15 @@
     }
   },
   "jest": {
-    "testResultsProcessor": "jest-sonar-reporter"
+    "testResultsProcessor": "jest-sonar-reporter",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".*\\.helper\\.js$"
+    ]
   }
 }

@@ -32,7 +32,8 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
-      if (ctx.isDev) {
+      if (ctx.isDev || config.test) {
+        console.log("source maps");
         config.devtool = "eval-source-map";
       }
     }

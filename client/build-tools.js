@@ -12,6 +12,7 @@ try {
 
 const isProd = ["production", "test"].includes(process.env.NODE_ENV);
 config.dev = !isProd;
+config.test = process.env.NODE_ENV === "test";
 config.rootDir = resolve(__dirname, "..");
 config.srcDir = resolve(__dirname);
 const renderer = new Nuxt(config);
