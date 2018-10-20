@@ -9,5 +9,5 @@ addons:
     token:
       secure: "YcrPnOXiOg0bc+uRJqzRsR2BBjPNDmkk/XlsGB7Brwk6MCsYgpNof/nDFwO8raaxqdfIaH8csbNntJYL0jhm78laHhqJcH59Q30Xzh7Z88zCtRiUDb4BboEYKe8EOaNSj3edrEgPI7KaXWzzBBjLKmf6h/ClycNJol2fmfo7IG+xCYto6Ti+5dwrJCPFxMv3MmDpCzWVVi8xf/fsHSvnb0OrR8wmnFAK2Pxu8OhxT8fVyr3obFBENUnQiSJ298l/GbuxopMEnpWi7Z+Kl/lAcbJ/gwWCQhYeynrWlsmBiTZNMJp62XBw2BavGpMQsWMyuaoLhylrh1BsnLM80JU1hQND8fYqXSGWJOkvXLFTe2MEsQKjMzzKVtJh4/50DMOCviGDBzfz7yVh9a6jKIdjoQAFfu5rYfNApGDoDYmZ7V+ggOD9bePHhrHITkC63zNXtkgrnvMlT6GE3O/hb6fxb+0RaOZjJRylgI7ofkXopYqJ/ZQimBwXZFUaYjkDaHFqDzI5wXbBMAYwBnzMk7ZOc+q0mH5evLNhXERlsmi1oQOf7ug7miDIOAdjC32lD9Vqq839vdxNS9XNd6p8F3SoyLgXj3MAnLse9nMMplWHQrZErJngHKMn+u6SYz21aaoX081+C9WBNhsdyiAqNUpzExzAgUqdMn1QeMReTS3154I="
 script: 
-  - yarn lint && yarn build
+  - yarn test
   - sonar-scanner
