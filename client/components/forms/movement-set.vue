@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-form(@submit.prevent ref="form")
+  v-form(ref="form")
     v-select(
       v-model="movementId"
       :items="entries"

@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-form(@submit.prevent ref="form")
+  v-form(ref="form")
     v-text-field(
       v-model="name" 
       label="Name" 
