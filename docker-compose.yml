@@ -30,9 +30,11 @@ services:
       - /src/app/node_modules
     ports:
       - 9229:9229
-    command: "yarn test:ui --watch"
+    command: "yarn test:unit --watch"
     depends_on:
       - test_db
+    environment:
+      - DATABASE_URL=postgres://barbell-hero:pgpassword@test_db:5432/barbell-hero
   test_db:
     image: postgres:10
     volumes:
