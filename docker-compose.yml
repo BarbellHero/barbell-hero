@@ -30,7 +30,7 @@ services:
       - /src/app/node_modules
     ports:
       - 9229:9229
-    command: "yarn test"
+    command: "yarn test --watch"
     depends_on:
       - test_db
   test_db:
