@@ -8,7 +8,9 @@
 > A workout tracker that stays out of your way
 
 Production: https://barbell-hero.herokuapp.com
+
 Development: https://barbell-hero-development.herokuapp.com
+
 Staging: https://barbell-hero-staging.herokuapp.com
 
 ## About
