@@ -2,5 +2,5 @@
 
 set -ex
 
-yarn test
+yarn test --forceExit
 sonar-scanner
