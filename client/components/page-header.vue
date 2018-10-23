@@ -1,9 +1,9 @@
 <template lang="pug">
   div
     v-toolbar.grey--text.text--darken-3(flat)
-      v-btn(icon @click.stop="back()")
+      v-btn#back-button(icon @click.stop="back()")
         v-icon(color="grey darken-3") arrow_back_ios
-      v-toolbar-title {{title}}
+      v-toolbar-title#title {{title}}
     v-divider
 </template>
 
