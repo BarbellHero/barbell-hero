@@ -3,7 +3,7 @@
 
 [![Travis (.org)](https://img.shields.io/travis/BarbellHero/barbell-hero.svg)](https://www.travis-ci.org/BarbellHero/barbell-hero)
 [![SonarQube Tech Debt](https://sonarcloud.io/api/project_badges/measure?project=Towerism_BarbellHero&metric=coverage)](https://sonarcloud.io/dashboard?id=Towerism_BarbellHero)
-[![SonarQube Tech Debt](https://sonarcloud.io/api/project_badges/measure?project=Towerism_BarbellHero&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Towerism_BarbellHero)
+[![SonarQube Tech Debt](https://sonarcloud.io/api/project_badges/measure?project=Towerism_BarbellHero&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Towerism_BarbellHero) [![Greenkeeper badge](https://badges.greenkeeper.io/BarbellHero/barbell-hero.svg)](https://greenkeeper.io/)
 
 > A workout tracker that stays out of your way
 
