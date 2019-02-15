@@ -88,7 +88,7 @@
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2",
+    "request-promise": "^4.2.3",
     "rimraf": "^2.6.2",
     "sequelize-cli": "^5.1.0",
     "vue-jest": "^3.0.0"
