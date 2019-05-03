@@ -60,7 +60,7 @@
     "feathers-seeder": "^2.0.0",
     "feathers-sequelize": "^3.1.2",
     "feathers-vuex": "^1.6.2",
-    "helmet": "^3.13.0",
+    "helmet": "^3.17.0",
     "nuxt": "^2.2.0",
     "pg": "^7.5.0",
     "sequelize": "^4.38.0",
