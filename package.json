@@ -85,7 +85,7 @@
     "jest-sonar-reporter": "^2.0.0",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
-    "pug": "^2.0.3",
+    "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
