@@ -54,7 +54,7 @@
     "@feathersjs/socketio-client": "^1.1.4",
     "@nuxtjs/vuetify": "^0.4.3",
     "compression": "^1.7.3",
-    "consola": "^2.0.0",
+    "consola": "^2.10.1",
     "cors": "^2.8.4",
     "cross-env": "^5.2.0",
     "feathers-seeder": "^2.0.0",
