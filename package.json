@@ -90,7 +90,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "rimraf": "^2.6.2",
-    "sequelize-cli": "^5.1.0",
+    "sequelize-cli": "^5.5.1",
     "vue-jest": "^3.0.0"
   },
   "husky": {
