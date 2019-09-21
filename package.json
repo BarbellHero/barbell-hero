@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@feathersjs/authentication": "^2.1.11",
-    "@feathersjs/authentication-client": "^1.0.6",
+    "@feathersjs/authentication-client": "^4.3.3",
     "@feathersjs/authentication-jwt": "^2.0.5",
     "@feathersjs/authentication-local": "^1.2.5",
     "@feathersjs/configuration": "^2.0.4",
